@@ -1,115 +1,126 @@
 interface Section {
-	title: string
-	content: string
-	headingLevel?: number
+  title: string;
+  content: string;
+  headingLevel?: number;
 }
 
 export const parseMarkdownSections = (markdown: string): Section[] => {
-	const sections: Section[] = []
-	const lines = markdown.split('\n')
-	let currentTitle = ''
-	let currentHeadingLevel = 3
-	let currentContent: string[] = []
-	let inHeader = true
-	const headerContent: string[] = []
+  const sections: Section[] = [];
+  const lines = markdown.split("\n");
+  let currentTitle = "";
+  let currentHeadingLevel = 3;
+  let currentContent: string[] = [];
+  let inHeader = true;
+  const headerContent: string[] = [];
 
-	const formatListItems = (content: string): string => {
-		const lines = content.split('\n')
-		let inList = false
+  const formatListItems = (content: string): string => {
+    const lines = content.split("\n");
+    let inList = false;
 
-		for (let i = 0; i < lines.length; i++) {
-			if (/^\d+\.\s/.test(lines[i])) {
-				inList = true
-			}
+    for (let i = 0; i < lines.length; i++) {
+      // Check for numbered lists
+      if (/^\d+\.\s/.test(lines[i])) {
+        inList = true;
+      }
 
-			if (inList && /^\s*[a-z]\)\s/.test(lines[i])) {
-				lines[i] = lines[i].replace(/^(\s*)([a-z])\)\s+(.+)$/, '$1   - $2) $3')
-			}
+      // Check for bullet points (unordered lists)
+      if (/^\s*[-*]\s/.test(lines[i])) {
+        inList = true;
+      }
 
-			if (
-				inList &&
-				lines[i].trim() === '' &&
-				(i === lines.length - 1 || !/^\s*[a-z]\)\s/.test(lines[i + 1]))
-			) {
-				inList = false
-			}
-		}
+      // Format alphabetic sub-items in numbered lists
+      if (inList && /^\s*[a-z]\)\s/.test(lines[i])) {
+        lines[i] = lines[i].replace(/^(\s*)([a-z])\)\s+(.+)$/, "$1   - $2) $3");
+      }
 
-		return lines.join('\n')
-	}
+      // End list if we hit an empty line and the next line doesn't continue the list
+      if (
+        inList &&
+        lines[i].trim() === "" &&
+        (i === lines.length - 1 ||
+          (!/^\s*[a-z]\)\s/.test(lines[i + 1]) &&
+            !/^\d+\.\s/.test(lines[i + 1]) &&
+            !/^\s*[-*]\s/.test(lines[i + 1])))
+      ) {
+        inList = false;
+      }
+    }
 
-	lines.forEach((line, index) => {
-		if (line.startsWith('### ')) {
-			inHeader = false
+    return lines.join("\n");
+  };
 
-			if (currentTitle) {
-				sections.push({
-					title: currentTitle,
-					content: formatListItems(currentContent.join('\n').trim()),
-					headingLevel: currentHeadingLevel
-				})
-				currentContent = []
-			}
-			currentTitle = line.replace('### ', '').trim()
-			currentHeadingLevel = 3
-		} else if (line.startsWith('## ')) {
-			inHeader = false
+  lines.forEach((line, index) => {
+    if (line.startsWith("### ")) {
+      inHeader = false;
 
-			if (currentTitle) {
-				sections.push({
-					title: currentTitle,
-					content: formatListItems(currentContent.join('\n').trim()),
-					headingLevel: currentHeadingLevel
-				})
-				currentContent = []
-			}
-			currentTitle = line.replace('## ', '').trim()
-			currentHeadingLevel = 2
-		} else if (line.startsWith('# ')) {
-			if (inHeader) {
-				headerContent.push(line)
-			} else {
-				if (currentTitle) {
-					sections.push({
-						title: currentTitle,
-						content: formatListItems(currentContent.join('\n').trim()),
-						headingLevel: currentHeadingLevel
-					})
-					currentContent = []
-				}
-				currentTitle = line.replace('# ', '').trim()
-				currentHeadingLevel = 1
-			}
-		} else {
-			if (inHeader && headerContent.length > 0) {
-				headerContent.push(line)
+      if (currentTitle) {
+        sections.push({
+          title: currentTitle,
+          content: formatListItems(currentContent.join("\n").trim()),
+          headingLevel: currentHeadingLevel,
+        });
+        currentContent = [];
+      }
+      currentTitle = line.replace("### ", "").trim();
+      currentHeadingLevel = 3;
+    } else if (line.startsWith("## ")) {
+      inHeader = false;
 
-				if (
-					index === lines.length - 1 ||
-					lines[index + 1].startsWith('### ') ||
-					lines[index + 1].startsWith('## ') ||
-					lines[index + 1].startsWith('# ')
-				) {
-					inHeader = false
-					sections.push({
-						title: 'header',
-						content: formatListItems(headerContent.join('\n').trim()),
-						headingLevel: 0
-					})
-				}
-			} else {
-				currentContent.push(line)
-			}
-		}
-	})
+      if (currentTitle) {
+        sections.push({
+          title: currentTitle,
+          content: formatListItems(currentContent.join("\n").trim()),
+          headingLevel: currentHeadingLevel,
+        });
+        currentContent = [];
+      }
+      currentTitle = line.replace("## ", "").trim();
+      currentHeadingLevel = 2;
+    } else if (line.startsWith("# ")) {
+      if (inHeader) {
+        headerContent.push(line);
+      } else {
+        if (currentTitle) {
+          sections.push({
+            title: currentTitle,
+            content: formatListItems(currentContent.join("\n").trim()),
+            headingLevel: currentHeadingLevel,
+          });
+          currentContent = [];
+        }
+        currentTitle = line.replace("# ", "").trim();
+        currentHeadingLevel = 1;
+      }
+    } else {
+      if (inHeader && headerContent.length > 0) {
+        headerContent.push(line);
 
-	if (currentTitle) {
-		sections.push({
-			title: currentTitle,
-			content: formatListItems(currentContent.join('\n').trim()),
-			headingLevel: currentHeadingLevel
-		})
-	}
+        if (
+          index === lines.length - 1 ||
+          lines[index + 1].startsWith("### ") ||
+          lines[index + 1].startsWith("## ") ||
+          lines[index + 1].startsWith("# ")
+        ) {
+          inHeader = false;
+          sections.push({
+            title: "header",
+            content: formatListItems(headerContent.join("\n").trim()),
+            headingLevel: 0,
+          });
+        }
+      } else {
+        currentContent.push(line);
+      }
+    }
+  });
 
-	return sections
-}
+  if (currentTitle) {
+    sections.push({
+      title: currentTitle,
+      content: formatListItems(currentContent.join("\n").trim()),
+      headingLevel: currentHeadingLevel,
+    });
+  }
+
+  return sections;
+};

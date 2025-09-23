@@ -190,6 +190,9 @@ const MarkdownContent: React.FC<MarkdownContentProps> = ({
 						</ol>
 					)
 				},
+				ul: ({ children }) => {
+					return <ul className="pl-6 mb-6 list-disc">{children}</ul>
+				},
 				li: ({ children }) => {
 					return <li className="mt-1">{children}</li>
 				},
