@@ -167,15 +167,7 @@ const TerminalEvents: React.FC<TerminalEventsProps> = ({
 																			1 && <br />}
 																</React.Fragment>
 															))}
-														{eventsData.events[selectedEventIndex]
-															.rruleText && (
-															<div className="text-terminal-text/60 text-sm first-letter:uppercase">
-																{
-																	eventsData.events[selectedEventIndex]
-																		.rruleText
-																}
-															</div>
-														)}
+														{/* rrule removed in new API; no recurring text to display */}
 													</div>
 
 													<strong
@@ -269,11 +261,7 @@ const TerminalEvents: React.FC<TerminalEventsProps> = ({
 														{i < event.date.split('\n').length - 1 && <br />}
 													</React.Fragment>
 												))}
-												{event.rruleTextShort && (
-													<div className="text-terminal-text/60 text-sm first-letter:uppercase">
-														{event.rruleTextShort}
-													</div>
-												)}
+												{/* rrule short text removed in new API */}
 											</div>
 										))}
 									</div>
