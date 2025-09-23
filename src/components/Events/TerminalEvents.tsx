@@ -31,7 +31,7 @@ const TerminalEvents: React.FC<TerminalEventsProps> = ({
 	const containerRef = useRef<HTMLDivElement>(null)
 	const [containerHeight, setContainerHeight] = useState<number | null>(null)
 	const [isCalModalOpen, setIsCalModalOpen] = useState(false)
-	const icalUrl = 'https://ical.neuland.app/neuland-events.ics'
+	const icalUrl = 'https://cl.neuland-ingolstadt.de/api/ical/4'
 
 	const handleEventClick = useCallback(
 		(index: number) => {
