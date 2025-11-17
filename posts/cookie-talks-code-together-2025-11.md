@@ -28,7 +28,7 @@ Die Cookie Talks verbinden kurze, abwechslungsreiche Vorträge mit einer lockere
 Eröffnet wurden die Cookie Talks von Benedikt Schwering, der uns einen Einblick in sein persönliches Homelab-Setup gegeben hat.
 Die Zuhörer konnten spannende Einblicke in seine Hardware, die Netzwerkkonfiguration und seine Softwareauswahl gewinnen – und die Diskussionen ließen nicht lange auf sich warten.
 
-Obwohl Benedikts Setup verhältnismäßig klein ist, steckt viel System dahinter: mehrere virtualisierte Dienste, betrieben auf Tiny/Mini/Micro-PCs (DELL Optiplex, HP ProDesk), dazu zwei TrueNAS-Systeme als Netzwerk-Speicher. Über Tailscale integriert er sowohl eine Offsite-Umgebung als auch einen Cloud-Server in sein Netzwerk. Von Paperless-NGX (digitales Dokumentenmanagement) über NextCloud und Immich bis Outline (Wiki) ist alles dabei, was man für ein modernes, gut organisiertes Homelab braucht.
+Obwohl Benedikts Setup verhältnismäßig klein ist, steckt viel System dahinter: mehrere virtualisierte Dienste, betrieben auf Tiny/Mini/Micro-PCs (DELL Optiplex, HP ProDesk), dazu zwei TrueNAS-Systeme als Netzwerk-Speicher. Über Tailscale integriert er sowohl eine Offsite-Umgebung als auch einen Cloud-Server in sein Netzwerk. Von Paperless-NGX (digitales Dokumentenmanagement) über Nextcloud und Immich bis Outline (Wiki) ist alles dabei, was man für ein modernes, gut organisiertes Homelab braucht.
 
 Das Thema Homelab bietet eine enorme Vielfalt und sollte in Zukunft auf jeden Fall durch weitere Perspektiven und Beispiele anderer Referenten ergänzt werden - meldet euch also gerne als Referenten für die nächsten Talks!
 
@@ -54,7 +54,7 @@ So führte der Weg zum aktuellen Kubernetes-Cluster, das heute auf drei Hetzner-
 Das Networking gestaltet sich dank Hetzner-vSwitch denkbar einfach - die 200 Kilometer zwischen Vogtland und Franken-Metropole sind kaum spürbar.
 Konfiguriert wird das Cluster via FluxCD und Git, was Änderungen an den Diensten klar strukturiert und effizient macht.
 Für Datensicherheit sorgt das verteilte Longhorn-Storage mit regelmäßigen Cloud-Backups via S3-Bucket.
-Anwendungen wie Authentik (SSO), NextCloud, Outline (Wiki), Neuland API, Neuland Next App, Neuland Website und mehr demonstrieren eindrucksvoll die Leistungsfähigkeit des Setups.
+Anwendungen wie Authentik (SSO), Nextcloud, Outline (Wiki), Neuland API, Neuland Next App, Neuland Website und mehr demonstrieren eindrucksvoll die Leistungsfähigkeit des Setups.
 
 An dieser Stelle soll auch noch einmal ein Dank an Hetzner gerichtet werden, die die Infrastruktur und auch das Event gesponsert haben!
 
@@ -79,10 +79,9 @@ Das nächste Event "Cookie Talks & code:together" im Dezember ist nach dieser po
 Wir freuen uns, wieder viele bekannte und neue Gesichter zu sehen.
 Bringt gerne wieder eure Programmierprojekte mit oder freut euch einfach auf spannende Talks und Cookies.
 
-Und falls ihr selbst Lust auf einen Talk hasbt: Meldet euch! Ideen sind jederzeit willkommen.
+Und falls ihr selbst Lust auf einen Talk habt: Meldet euch! Ideen sind jederzeit willkommen.
 
 Und damit war es das auch schon von mir.
 Ich danke für's Lesen - wir sehen uns in drei Wochen!
 
 ![Cookie Talks November 2025](/assets/blog/cookie-talks-code-together-2025-11/2025-10-31_cookie-talks_0.webp)
-
