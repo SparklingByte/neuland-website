@@ -167,7 +167,7 @@ const TerminalPartners: React.FC = () => {
 								{/* Fading subtitle - absolutely positioned so it doesn't affect layout */}
 								<div className="absolute -bottom-3 left-0 right-0 z-10 opacity-0 group-hover/logo:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover/logo:translate-y-0 pointer-events-none">
 									<p className="text-sm text-terminal-text/70 text-center font-medium ">
-										Explore GmbH
+										EXP Software GmbH
 									</p>
 								</div>
 							</a>
