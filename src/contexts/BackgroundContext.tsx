@@ -8,6 +8,8 @@ interface BackgroundContextType {
 	backgroundType: BackgroundType
 	setBackgroundType: (type: BackgroundType) => void
 	toggleBackgroundType: () => void
+	crossesRotationToken: number
+	triggerCrossesRotation: () => void
 }
 
 const BackgroundContext = createContext<BackgroundContextType | undefined>(
@@ -18,7 +20,8 @@ export const BackgroundProvider: React.FC<{ children: React.ReactNode }> = ({
 	children
 }) => {
 	const [backgroundType, setBackgroundTypeState] =
-		useState<BackgroundType>('gameOfLife')
+		useState<BackgroundType>('simple')
+	const [crossesRotationToken, setCrossesRotationToken] = useState(0)
 
 	useEffect(() => {
 		const savedType = localStorage.getItem(
@@ -42,9 +45,19 @@ export const BackgroundProvider: React.FC<{ children: React.ReactNode }> = ({
 		})
 	}
 
+	const triggerCrossesRotation = () => {
+		setCrossesRotationToken((prev) => prev + 1)
+	}
+
 	return (
 		<BackgroundContext.Provider
-			value={{ backgroundType, setBackgroundType, toggleBackgroundType }}
+			value={{
+				backgroundType,
+				setBackgroundType,
+				toggleBackgroundType,
+				crossesRotationToken,
+				triggerCrossesRotation
+			}}
 		>
 			{children}
 		</BackgroundContext.Provider>
