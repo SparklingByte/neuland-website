@@ -6,6 +6,7 @@ import TerminalWindow from '@/components/Events/terminal-window'
 import TerminalSection from '@/components/Layout/terminal-section'
 import TerminalButton from '@/components/terminal-button'
 import TerminalList from '@/components/terminal-list'
+import { InternalOnlyTooltip } from '@/components/ui/tooltip'
 import { cn } from '@/lib/utils'
 import type { fetchEvents } from '@/services/events'
 import CalendarModal from './calendar-modal'
@@ -14,6 +15,27 @@ interface TerminalEventsProps {
 	initialData?: Awaited<ReturnType<typeof fetchEvents>>
 	error?: string | null
 }
+
+const InternalBadge = React.forwardRef<
+	HTMLSpanElement,
+	React.ComponentPropsWithoutRef<'span'>
+>(({ className, ...props }, ref) => (
+	<span
+		ref={ref}
+		className={cn(
+			'inline-flex items-center gap-1 border border-terminal-window-border/80 bg-terminal-card/70 px-2 py-[2px] text-[0.6rem] font-semibold uppercase tracking-[0.08em] text-terminal-text/80',
+			className
+		)}
+		{...props}
+	>
+		<span
+			aria-hidden="true"
+			className="h-1.5 w-1.5 rounded-full bg-red-500/80 shadow-[0_0_6px_rgba(239,68,68,0.6)]"
+		/>
+		Intern
+	</span>
+))
+InternalBadge.displayName = 'InternalBadge'
 
 const TerminalEvents: React.FC<TerminalEventsProps> = ({
 	initialData,
@@ -136,15 +158,27 @@ const TerminalEvents: React.FC<TerminalEventsProps> = ({
 										{selectedEventIndex !== null && (
 											<div className="flex flex-col h-full">
 												<div className="flex-none">
-													<strong className="text-terminal-lightGreen text-xl break-words pr-4 max-w-full">
-														{eventsData.events[selectedEventIndex].title}
-														{eventsData.events[selectedEventIndex].location && (
-															<span className="text-terminal-text/60 ml-2 break-all">
-																@
-																{eventsData.events[selectedEventIndex].location}
-															</span>
+													<div className="flex flex-wrap items-center gap-2">
+														<strong className="text-terminal-lightGreen text-xl wrap-break-word pr-4 max-w-full">
+															{eventsData.events[selectedEventIndex].title}
+															{eventsData.events[selectedEventIndex]
+																.location && (
+																<span className="text-terminal-text/60 ml-2 break-all">
+																	@
+																	{
+																		eventsData.events[selectedEventIndex]
+																			.location
+																	}
+																</span>
+															)}
+														</strong>
+														{eventsData.events[selectedEventIndex]
+															.isInternal && (
+															<InternalOnlyTooltip>
+																<InternalBadge />
+															</InternalOnlyTooltip>
 														)}
-													</strong>
+													</div>
 
 													<div className="mb-5 text-terminal-text/80">
 														{eventsData.events[selectedEventIndex].date
@@ -237,15 +271,21 @@ const TerminalEvents: React.FC<TerminalEventsProps> = ({
 													}
 												}}
 											>
-												<strong className="text-terminal-lightGreen text-[1.05rem]">
-													{event.title}
-													{event.location && (
-														<span className="text-terminal-text/60 ml-2">
-															@{event.location}
-														</span>
+												<div className="flex flex-wrap items-center gap-2">
+													<strong className="text-terminal-lightGreen text-[1.05rem] wrap-break-word">
+														{event.title}
+														{event.location && (
+															<span className="text-terminal-text/60 ml-2">
+																@{event.location}
+															</span>
+														)}
+													</strong>
+													{event.isInternal && (
+														<InternalOnlyTooltip>
+															<InternalBadge />
+														</InternalOnlyTooltip>
 													)}
-												</strong>
-												<br />
+												</div>
 												{event.date.split('\n').map((line, i) => (
 													<React.Fragment key={i}>
 														<span

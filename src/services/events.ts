@@ -12,6 +12,7 @@ interface Event {
 	location: string
 	description: string
 	nextOccurrence: string
+	isInternal: boolean
 }
 
 // RRule translations and helpers removed because events are no longer recurring
@@ -55,6 +56,7 @@ export type PublicEventResponse = {
 	start_date_time: string
 	title_de: string
 	title_en: string
+	is_internal: boolean
 }
 
 export const fetchEvents = async (): Promise<{
@@ -83,7 +85,7 @@ export const fetchEvents = async (): Promise<{
 		}
 
 		const responseData = await response.json()
-
+		console.log(responseData)
 		function getSemesterFromDate(date: moment.Moment): string {
 			const year = date.year()
 			const month = date.month() + 1 // moment months are 0-based
@@ -108,6 +110,7 @@ export const fetchEvents = async (): Promise<{
 				date: dateStr,
 				location: event.location || '',
 				description: event.description_de || '',
+				isInternal: event.is_internal,
 				nextOccurrence: nextOccurrence.isValid()
 					? nextOccurrence.toISOString()
 					: ''
