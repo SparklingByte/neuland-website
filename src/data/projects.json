@@ -145,6 +145,21 @@
 		"additionalInfo": "Die Website wurde mit Next.js und Tailwind CSS entwickelt und bietet eine moderne, responsive Benutzeroberfläche mit Analytics-Integration."
 	},
 	{
+		"id": "aoc-leaderboard",
+		"title": "Advent of Code Leaderboard",
+		"description": "Eine Web-App mit Go Backend, welche Ergebnisse und Statistiken des internen Advent of Code Wettbewerbs anzeigt.",
+		"links": [
+			{
+				"label": "GitHub",
+				"url": "https://github.com/neuland-ingolstadt/aoc-leaderboard"
+			}
+		],
+		"tags": ["Next.js", "TypeScript", "Go"],
+		"imageUrl": "/assets/aoc.webp",
+		"longDescription": "Die Next.js Web-App visualisiert mit ansprechenden Diagrammen und Tabellen die Ergebnisse und Statistiken des internen Advent of Code Wettbewerbs, welche durch das Go Backend gesammelt und bereitgestellt werden.",
+		"additionalInfo": "Die Web-App wurde mit Next.js und Tailwind CSS entwickelt und bietet eine moderne, responsive Benutzeroberfläche mit Analytics-Integration. Das Go Backend sammelt die Ergebnisse und Statistiken des Advent of Code Wettbewerbs und stellt sie via Server-Side Rendering bereit."
+	},
+	{
 		"id": "it-studver",
 		"title": "IT für StudVer & Vereine",
 		"description": "IT-Infrastruktur für die Studierendenvertretung und studentische Vereine.",
