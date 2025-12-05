@@ -85,7 +85,6 @@ export const fetchEvents = async (): Promise<{
 		}
 
 		const responseData = await response.json()
-		console.log(responseData)
 		function getSemesterFromDate(date: moment.Moment): string {
 			const year = date.year()
 			const month = date.month() + 1 // moment months are 0-based
