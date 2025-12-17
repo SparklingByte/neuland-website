@@ -45,14 +45,14 @@ const SettingsLinks: React.FC = () => {
 
 				<li className="mt-3 group">
 					<a
-						href="https://status.neuland.app/status/app"
+						href="https://status.neuland.ing"
 						rel="noreferrer noopener"
 						target="_blank"
 						className="inline-flex items-center gap-1 text-terminal-text group"
 					>
 						<span className="mr-1 group-hover:animate-cyberpunk">$</span>
 						<span className="text-terminal-cyan">curl</span>
-						<span>&nbsp;status.neuland.app</span>
+						<span>&nbsp;status.neuland.ing</span>
 					</a>
 				</li>
 			</ul>
