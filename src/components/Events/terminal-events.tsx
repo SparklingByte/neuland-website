@@ -132,7 +132,7 @@ const TerminalEvents: React.FC<TerminalEventsProps> = ({
 										kommende Semester.
 										<br />
 										<span className="text-terminal-highlight">$</span>{' '}
-										./prepare_ctf.sh --season WS25/26 --hype-level=MAXIMUM
+										./prepare_events.sh --season SoSe26 --hype-level=MAXIMUM
 									</p>
 								</div>
 							) : (
