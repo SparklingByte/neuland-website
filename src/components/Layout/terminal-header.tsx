@@ -33,7 +33,7 @@ const navLinks = [
 	{ name: 'Blog', href: '/blog', external: false },
 	{
 		name: 'Login',
-		href: 'https://sso.informatik.sexy',
+		href: 'https://auth.neuland.ing',
 		external: true
 	}
 ]
