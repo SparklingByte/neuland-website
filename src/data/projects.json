@@ -26,10 +26,6 @@
 			{
 				"label": "CTFtime",
 				"url": "https://ctftime.org/team/150968"
-			},
-			{
-				"label": "Neuland CTF",
-				"url": "https://ctf.neuland-ingolstadt.de"
 			}
 		],
 		"tags": ["Cybersecurity"],
