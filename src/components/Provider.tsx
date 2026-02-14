@@ -12,6 +12,8 @@ import {
 import { useState } from 'react'
 import { BackgroundProvider } from '@/contexts/BackgroundContext'
 import RouteTracker from './Layout/route-tracker'
+import { NextIntlClientProvider } from 'next-intl'
+import type { AbstractIntlMessages } from 'next-intl'
 
 function makeQueryClient() {
 	return new QueryClient({
@@ -45,10 +47,14 @@ function getQueryClient() {
 
 export default function Providers({
 	children,
-	dehydratedState
+	dehydratedState,
+	locale,
+	messages
 }: {
 	children: React.ReactNode
 	dehydratedState?: DehydratedState
+	locale: string
+	messages: AbstractIntlMessages
 }) {
 	// In React 18, we need to use useState here to create a new query client
 	// on the server for each request, to avoid sharing state between users.
@@ -66,7 +72,9 @@ export default function Providers({
 			>
 				<QueryClientProvider client={queryClient}>
 					<HydrationBoundary state={dehydratedState}>
-						{children}
+						<NextIntlClientProvider locale={locale} messages={messages}>
+							{children}
+						</NextIntlClientProvider>
 						<RouteTracker />
 					</HydrationBoundary>
 				</QueryClientProvider>

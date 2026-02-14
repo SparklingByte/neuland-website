@@ -8,6 +8,8 @@ import TerminalFooter from '@/components/Footer/terminal-footer'
 import TerminalHeader from '@/components/Layout/terminal-header'
 import Providers from '@/components/Provider'
 
+import { getLocale, getMessages } from 'next-intl/server'
+
 const overpassMono = Noto_Sans_Mono({
 	variable: '--font-mono',
 	subsets: ['latin'],
@@ -83,11 +85,14 @@ const themeScript = `
   })();
 `
 
-export default function RootLayout({
+export default async function RootLayout({
 	children
 }: Readonly<{
 	children: React.ReactNode
 }>) {
+	const locale = await getLocale()
+	const messages = await getMessages()
+
 	return (
 		<html lang="de" suppressHydrationWarning>
 			<head>
@@ -121,7 +126,7 @@ export default function RootLayout({
 			<body
 				className={`${overpassMono.variable} ${notoSans.variable} font-sans antialiased`}
 			>
-				<Providers>
+				<Providers locale={locale} messages={messages}>
 					<TerminalHeader />
 					<MatrixEffect />
 					<div className="container px-4 md:px-12 xl:px-20 mx-auto pt-6 relative z-10">
