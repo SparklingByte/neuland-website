@@ -1,6 +1,7 @@
 'use client'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Check, Copy, X } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import type React from 'react'
 import { useCallback, useEffect, useState } from 'react'
 
@@ -45,6 +46,8 @@ const CalendarModal: React.FC<CalendarModalProps> = ({
 	const handleBackdropClick = useCallback(() => {
 		onClose()
 	}, [onClose])
+
+	const t = useTranslations('calendarModal')
 
 	if (!isOpen) return null
 
@@ -127,10 +130,7 @@ const CalendarModal: React.FC<CalendarModalProps> = ({
 
 							{/* Content */}
 							<div className="p-6 relative z-10">
-								<p className="mb-6 leading-relaxed">
-									Du kannst alle Neuland Events in deinen Kalender als iCal
-									Abonnement hinzufügen.
-								</p>
+								<p className="mb-6 leading-relaxed">{t('title')}</p>
 
 								<div className="bg-terminal-card p-3 border border-terminal-window-border mb-6 font-mono text-xs relative group">
 									<div className="flex items-center justify-between">
@@ -140,8 +140,8 @@ const CalendarModal: React.FC<CalendarModalProps> = ({
 										<button
 											onClick={copyToClipboard}
 											className="shrink-0 ml-1 text-terminal-text/70 hover:text-terminal-cyan transition-colors duration-200"
-											aria-label="URL kopieren"
-											title="URL kopieren"
+											aria-label={t('copyUrl')}
+											title={t('copyUrl')}
 											type="button"
 										>
 											{copied ? (
@@ -154,13 +154,13 @@ const CalendarModal: React.FC<CalendarModalProps> = ({
 								</div>
 
 								<h3 className="text-lg text-terminal-cyan mb-3 font-semibold">
-									So gehts:
+									{t('tutorialTitle')}
 								</h3>
 								<ul className="list-disc list-inside space-y-2 mb-0 text-terminal-text/70">
-									<li>Kopiere die URL</li>
-									<li>Öffne deine Kalender App</li>
-									<li>Erstelle ein neues iCal Abonnement</li>
-									<li>Die Events werden automatisch aktualisiert</li>
+									<li>{t('tutorialLine1')}</li>
+									<li>{t('tutorialLine2')}</li>
+									<li>{t('tutorialLine3')}</li>
+									<li>{t('tutorialLine4')}</li>
 								</ul>
 							</div>
 						</div>
