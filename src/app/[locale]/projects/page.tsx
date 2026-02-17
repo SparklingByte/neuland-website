@@ -2,6 +2,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { Code, Filter, Github } from 'lucide-react'
 import { useRouter } from 'next/navigation'
+import { useTranslations } from 'next-intl'
 import { useMemo, useState } from 'react'
 import ProjectCard, {
 	type ProjectDetails
@@ -19,6 +20,8 @@ const uniqueTags = (projectsData as ProjectDetails[]).reduce((acc, project) => {
 const ProjectsPage = () => {
 	const router = useRouter()
 	const [activeTag, setActiveTag] = useState<string | null>(null)
+
+	const t = useTranslations('Projects')
 
 	const filteredProjects = useMemo(() => {
 		if (!activeTag) return projectsData
@@ -43,7 +46,7 @@ const ProjectsPage = () => {
 			>
 				<div className="flex items-center gap-3 mb-6">
 					<h1 className="text-3xl md:text-4xl font-bold  font-mono">
-						Unsere Projekte
+						{t('title')}
 					</h1>
 				</div>
 
@@ -53,9 +56,7 @@ const ProjectsPage = () => {
 					transition={{ duration: 0.6, delay: 0.2 }}
 					className="text-lg text-terminal-text/80 font-mono max-w-3xl"
 				>
-					Entdecke unsere Sammlung kreativer, technischer und
-					gemeinschaftsgetriebener Projekte. Von Webanwendungen bis hin zu
-					Cybersecurity-Initiativen.
+					{t('subtitle')}
 				</motion.p>
 
 				<motion.div
@@ -66,8 +67,7 @@ const ProjectsPage = () => {
 				>
 					<Code size={16} />
 					<span>
-						{filteredProjects.length} Projekt
-						{filteredProjects.length !== 1 ? 'e' : ''} gefunden
+						{t('projectsFound', { amountProjects: filteredProjects.length })}
 					</span>
 				</motion.div>
 			</motion.div>
@@ -77,7 +77,7 @@ const ProjectsPage = () => {
 				<div className="flex items-center gap-3 mb-4">
 					<Filter size={20} className="text-terminal-cyan" />
 					<span className="text-terminal-text/80 font-mono">
-						Filter nach Technologie:
+						{t('filterByTechnology')}
 					</span>
 				</div>
 
@@ -91,7 +91,7 @@ const ProjectsPage = () => {
 						}`}
 						onClick={() => setActiveTag(null)}
 					>
-						Alle Projekte
+						{t('allProjects')}
 					</button>
 					{[...uniqueTags].map((tag) => (
 						<button
@@ -141,7 +141,7 @@ const ProjectsPage = () => {
 					>
 						<Code size={48} className="text-terminal-text/40 mx-auto mb-4" />
 						<p className="text-terminal-text/60 font-mono">
-							Keine Projekte gefunden für diesen Filter.
+							{t('noProjectsByFilter')}
 						</p>
 					</motion.div>
 				)}
@@ -157,7 +157,7 @@ const ProjectsPage = () => {
 				<div className="text-center">
 					<div className="flex items-center justify-center gap-2 mb-4">
 						<span className="text-terminal-text/80 font-mono">
-							Sieh dir unsere Projekte auf GitHub an!
+							{t('githubText')}
 						</span>
 					</div>
 					<TerminalButton
@@ -169,7 +169,7 @@ const ProjectsPage = () => {
 							size={16}
 							className="mr-2 group-hover:rotate-8 transition-transform duration-300"
 						/>
-						Mehr erfahren
+						{t('learnMore')}
 					</TerminalButton>
 				</div>
 			</motion.div>
