@@ -41,9 +41,13 @@ export const generateMetadata = async ({
 	return { title: post.title }
 }
 
-const PostLayout = async ({ params }: { params: Promise<{ slug: string, locale: string }> }) => {
+const PostLayout = async ({
+	params
+}: {
+	params: Promise<{ slug: string; locale: string }>
+}) => {
 	const { slug, locale } = await params
-	setRequestLocale(locale);
+	setRequestLocale(locale)
 
 	const t = await getTranslations('Blog')
 

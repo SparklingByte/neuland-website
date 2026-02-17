@@ -46,7 +46,7 @@ const ProjectDetailPage = async ({
 	const { id, locale } = await params
 	setRequestLocale(locale)
 	const project = (projectsData as ProjectDetails[]).find((p) => p.id === id)
-	
+
 	if (!project) {
 		notFound()
 	}
