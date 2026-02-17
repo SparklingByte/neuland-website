@@ -1,7 +1,6 @@
 'use client'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Code, Filter, Github } from 'lucide-react'
-import { useRouter } from '@/i18n/navigation'
 import { useTranslations } from 'next-intl'
 import { useMemo, useState } from 'react'
 import ProjectCard, {
@@ -9,6 +8,7 @@ import ProjectCard, {
 } from '@/components/Projects/project-card'
 import TerminalButton from '@/components/terminal-button'
 import projectsData from '@/data/projects.json'
+import { useRouter } from '@/i18n/navigation'
 
 const uniqueTags = (projectsData as ProjectDetails[]).reduce((acc, project) => {
 	project.tags?.forEach((tag) => {
