@@ -1,3 +1,4 @@
+import { getTranslations } from 'next-intl/server'
 import AboutUsSection from '@/components/AboutUs/about-us-section'
 import BlogPreview from '@/components/blog/blog-peview'
 import ClientIntro from '@/components/client-intro'
@@ -9,19 +10,25 @@ import TerminalMembership from '@/components/terminal-membership'
 import TerminalPartners from '@/components/terminal-partners'
 
 export default async function Index() {
+	const t = await getTranslations('Home')
+
 	return (
 		<>
 			<ClientIntro />
 			<EventsSection />
 			<NextAppShowcase />
-			<TerminalSection title="Auszug aus unseren Projekten" headingLevel={2}>
+			<TerminalSection title={t('projectsSection.title')} headingLevel={2}>
 				<ProjectsShowcase />
 			</TerminalSection>
 			<AboutUsSection />
-			<TerminalSection title="Mitgliedschaft" headingLevel={2} id="membership">
+			<TerminalSection
+				title={t('membershipSection.title')}
+				headingLevel={2}
+				id="membership"
+			>
 				<TerminalMembership />
 			</TerminalSection>
-			<TerminalSection title="Partner" headingLevel={2}>
+			<TerminalSection title={t('partnerSection.title')} headingLevel={2}>
 				<TerminalPartners />
 			</TerminalSection>
 			<TerminalSection title="Neuland Blog" headingLevel={2}>
