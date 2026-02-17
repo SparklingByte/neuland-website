@@ -22,16 +22,19 @@ import {
 } from '@/components/ui/pagination'
 import { Link } from '@/i18n/navigation'
 
+export const dynamic = 'force-dynamic'
+
 export default async function Home({
 	searchParams
 }: {
-	searchParams: { [key: string]: string | string[] | undefined }
+	searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }) {
 	const posts = allPosts.sort((a, b) =>
 		compareDesc(new Date(a.date), new Date(b.date))
 	)
 
-	const { page } = await searchParams
+	const resolvedSearchParams = await searchParams
+	const { page } = resolvedSearchParams
 
 	// Pagination logic
 	const POSTS_PER_PAGE = 12
