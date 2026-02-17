@@ -1,8 +1,8 @@
 'use client'
 
 import { Menu } from 'lucide-react'
-import Link from 'next/link'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
+import { useTranslations } from 'next-intl'
 import type React from 'react'
 import { useEffect, useRef } from 'react'
 import {
@@ -19,24 +19,30 @@ import {
 	useSidebar
 } from '@/components/ui/sidebar'
 import { useBackground } from '@/contexts/BackgroundContext'
-
+import { Link } from '@/i18n/navigation'
 import NeulandLogo from './neuland-logo'
 import ThemeToggle, { ThemeToggleMobile } from './theme-toggle'
 
-const navLinks = [
-	{
-		name: 'Mitglied werden',
-		href: '/#membership',
-		external: false
-	},
-	{ name: 'Projekte', href: '/projects', external: false },
-	{ name: 'Blog', href: '/blog', external: false },
-	{
-		name: 'Login',
-		href: 'https://auth.neuland.ing',
-		external: true
-	}
-]
+const useNavigation = () => {
+	const t = useTranslations('Navigation')
+
+	const navLinks = [
+		{
+			name: t('becomeMember'),
+			href: '/#membership',
+			external: false
+		},
+		{ name: t('projects'), href: '/projects', external: false },
+		{ name: t('blog'), href: '/blog', external: false },
+		{
+			name: t('login'),
+			href: 'https://auth.neuland.ing',
+			external: true
+		}
+	]
+
+	return navLinks
+}
 
 interface NavLinkProps {
 	link: {
@@ -83,6 +89,8 @@ const MobileSidebar: React.FC = () => {
 			setOpenMobile(false)
 		}
 	}
+
+	const navLinks = useNavigation()
 
 	return (
 		<Sidebar variant="sidebar" side="bottom">
@@ -173,7 +181,6 @@ const MobileSidebarTrigger: React.FC = () => {
 
 const TerminalHeader: React.FC = () => {
 	const headerRef = useRef<HTMLElement>(null)
-	const navigate = useRouter()
 	const isJune = new Date().getMonth() === 5
 	const { triggerCrossesRotation } = useBackground()
 
@@ -193,10 +200,7 @@ const TerminalHeader: React.FC = () => {
 		return () => window.removeEventListener('resize', setNavbarHeight)
 	}, [])
 
-	const handleHomeClick = (e: React.MouseEvent) => {
-		e.preventDefault()
-		navigate.replace('/')
-	}
+	const navLinks = useNavigation()
 
 	return (
 		<SidebarProvider>
@@ -209,7 +213,6 @@ const TerminalHeader: React.FC = () => {
 						<Link
 							href="/"
 							className="flex items-center no-underline"
-							onClick={handleHomeClick}
 							onMouseEnter={triggerCrossesRotation}
 						>
 							<div className="logo">
