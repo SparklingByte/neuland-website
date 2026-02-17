@@ -1,5 +1,5 @@
 import { allPosts } from 'contentlayer/generated'
-import Link from 'next/link'
+import { getTranslations } from 'next-intl/server'
 import { Badge } from '@/components/ui/badge'
 import {
 	Breadcrumb,
@@ -8,8 +8,9 @@ import {
 	BreadcrumbList,
 	BreadcrumbSeparator
 } from '@/components/ui/breadcrumb'
+import { Link } from '@/i18n/navigation'
 
-export default function TagsIndexPage() {
+export default async function TagsIndexPage() {
 	// Get all unique tags and count how many posts use each tag
 	const tagCounts = allPosts.reduce(
 		(acc, post) => {
@@ -28,6 +29,8 @@ export default function TagsIndexPage() {
 	const sortedTags = Object.entries(tagCounts).sort(([tagA], [tagB]) =>
 		tagA.localeCompare(tagB)
 	)
+
+	const t = await getTranslations('Blog.tags')
 
 	return (
 		<div className="mx-auto max-w-5xl mb-12">
@@ -57,7 +60,7 @@ export default function TagsIndexPage() {
 
 			<h1 className="mt-4 mb-2 text-3xl font-bold ">Blog Tags</h1>
 			<p className="mb-8 text-terminal-text/70">
-				Durchsuche alle {sortedTags.length} Tags des Neuland Blogs
+				{t('searchAllTags', { numberOfTags: sortedTags.length })}
 			</p>
 
 			<div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
@@ -100,11 +103,11 @@ export default function TagsIndexPage() {
 										{displayTag}
 									</Badge>
 									<span className="text-terminal-text/70 text-sm group-hover:text-terminal-text transition-colors duration-200">
-										{count} {count === 1 ? 'Beitrag' : 'Beiträge'}
+										{t('amountPosts', { numberOfPosts: count })}
 									</span>
 								</div>
 								<span className="relative z-10 text-terminal-text/60 group-hover:text-terminal-cyan text-xs transition-colors duration-200 flex items-center gap-1">
-									View
+									{t('display')}
 									<span className="inline-block transition-transform duration-200 group-hover:translate-x-1">
 										→
 									</span>
