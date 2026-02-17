@@ -1,9 +1,17 @@
-import type { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
 
-export const metadata: Metadata = {
-	title: 'Neuland Ingolstadt Blog',
-	description:
-		'Blog des Neuland Ingolstadt e.V. - Informatik- und Technikthemen, Events und Workshops'
+export async function generateMetadata({
+	params
+}: {
+	params: Promise<{ locale: string }>
+}) {
+	const { locale } = await params
+	const t = await getTranslations({ locale, namespace: 'Blog.metadata' })
+
+	return {
+		title: t('title'),
+		description: t('description')
+	}
 }
 
 export default async function RootLayout({
