@@ -1,7 +1,7 @@
 import { allPosts } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
 import { RssIcon, TagIcon } from 'lucide-react'
-import Link from 'next/link'
+import { getTranslations } from 'next-intl/server'
 import { PostCard } from '@/components/blog/post-card'
 import TerminalButton from '@/components/terminal-button'
 import {
@@ -20,6 +20,7 @@ import {
 	PaginationNext,
 	PaginationPrevious
 } from '@/components/ui/pagination'
+import { Link } from '@/i18n/navigation'
 
 export default async function Home({
 	searchParams
@@ -110,6 +111,8 @@ export default async function Home({
 		return items
 	}
 
+	const t = await getTranslations('Blog')
+
 	return (
 		<div className="mx-auto max-w-5xl">
 			<Breadcrumb>
@@ -149,7 +152,7 @@ export default async function Home({
 						href="/blog/tags"
 						className="flex items-center gap-2 no-underline group"
 					>
-						Alle Tags
+						{t('allTags')}
 						<TagIcon
 							size={16}
 							className="transition-transform duration-300 group-hover:rotate-16"
