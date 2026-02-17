@@ -20,6 +20,7 @@ import {
 } from '@/components/ui/sidebar'
 import { useBackground } from '@/contexts/BackgroundContext'
 import { Link } from '@/i18n/navigation'
+import LanguageToggle from './language-toggle'
 import NeulandLogo from './neuland-logo'
 import ThemeToggle, { ThemeToggleMobile } from './theme-toggle'
 
@@ -141,10 +142,13 @@ const MobileSidebar: React.FC = () => {
 
 			<SidebarFooter className="border-t border-terminal-window-border/70 bg-terminal-bg/95 px-4 py-3">
 				<div className="flex items-center justify-between gap-4 text-xs text-terminal-text/60">
-					<span className="uppercase tracking-[0.18em] text-[0.65rem] text-terminal-text/70">
-						Theme
-					</span>
-					<ThemeToggleMobile />
+					<div className="flex items-center gap-2">
+						<span className="uppercase tracking-[0.18em] text-[0.65rem] text-terminal-text/70">
+							Theme
+						</span>
+						<ThemeToggleMobile />
+					</div>
+					<LanguageToggle />
 				</div>
 			</SidebarFooter>
 		</Sidebar>
@@ -241,6 +245,7 @@ const TerminalHeader: React.FC = () => {
 							/>
 						))}
 						<ThemeToggle />
+						<LanguageToggle />
 					</nav>
 
 					{/* Mobile Menu Button (Sidebar trigger) */}
