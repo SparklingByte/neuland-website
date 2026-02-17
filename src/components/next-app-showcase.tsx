@@ -15,6 +15,7 @@ import {
 	Users,
 	Zap
 } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import FeatureItem from './feature-item'
 import TerminalButton from './terminal-button'
@@ -28,6 +29,8 @@ const NextAppShowcase = () => {
 		'/assets/neuland-next/next_4.webp',
 		'/assets/neuland-next/next_3.webp'
 	]
+
+	const t = useTranslations('Home.neulandNextSection')
 
 	const rotateScreenshot = useCallback(() => {
 		setActiveIndex((prev) => (prev + 1) % screenshots.length)
@@ -68,55 +71,59 @@ const NextAppShowcase = () => {
 	const features = [
 		{
 			icon: <Calendar className="h-5 w-5 text-terminal-cyan" />,
-			title: 'Stundenplan & Prüfungen',
-			description: 'Dein persönlicher Stundenplan und alle Prüfungen'
+			title: t('features.timetable.title'),
+			description: t('features.timetable.description')
 		},
 		{
 			icon: <Calendar className="h-5 w-5 text-terminal-cyan" />,
-			title: 'Kalender & Events',
-			description: 'Alle wichtigen Semesterdaten und Campus-Events'
+			title: t('features.calendar.title'),
+			description: t('features.calendar.description')
 		},
 		{
 			icon: <Users className="h-5 w-5 text-terminal-cyan" />,
-			title: 'Profil',
-			description: 'Prüfe deine Noten oder dein Druckguthaben'
+			title: t('features.profile.title'),
+			description: t('features.profile.description')
 		},
 		{
 			icon: <ForkKnife className="h-5 w-5 text-terminal-cyan" />,
-			title: 'Mensa',
-			description: 'Alle Speisepläne mit Preisen, Allergenen und Nährwerten'
+			title: t('features.mensa.title'),
+			description: t('features.mensa.description')
 		},
 		{
 			icon: <MapPin className="h-5 w-5 text-terminal-cyan" />,
-			title: 'Campus-Karte',
-			description:
-				'Finde freie Räume, erkunde Gebäude oder nutze smarte Vorschläge'
+			title: t('features.map.title'),
+			description: t('features.map.description')
 		},
 		{
 			icon: <BookOpen className="h-5 w-5 text-terminal-cyan" />,
-			title: 'Bibliothek',
-			description: 'Nutze deinen virtuellen Bibliotheks Code zum Ausleihen'
+			title: t('features.library.title'),
+			description: t('features.library.description')
 		},
 		{
 			icon: <Globe className="h-5 w-5 text-terminal-cyan" />,
-			title: 'Quick Links',
-			description: 'Alle wichtigen Uni-Plattformen wie Moodle oder Primuss'
+			title: t('features.links.title'),
+			description: t('features.links.description')
 		},
 		{
 			icon: <Bell className="h-5 w-5 text-terminal-cyan" />,
-			title: 'THI News',
-			description: 'Bleibe informiert mit den neuesten Nachrichten der THI'
+			title: t('features.news.title'),
+			description: t('features.news.description')
 		}
 	]
 
 	const highlights = [
-		{ icon: <Shield className="h-4 w-4" />, text: 'Maximaler Datenschutz' },
-
-		{ icon: <Zap className="h-4 w-4" />, text: 'Blitzschnelle Performance' },
-		{ icon: <GithubIcon className="h-4 w-4" />, text: '100% Open Source' },
-		{ icon: <TrendingUp className="h-4 w-4" />, text: 'Regelmäßige Updates' },
-		{ icon: <Globe className="h-4 w-4" />, text: 'Offline-fähig' },
-		{ icon: <Laptop className="h-4 w-4" />, text: 'Auch als Web App' }
+		{ icon: <Shield className="h-4 w-4" />, text: t('container.privacy') },
+		{ icon: <Zap className="h-4 w-4" />, text: t('container.performance') },
+		{
+			icon: <GithubIcon className="h-4 w-4" />,
+			text: t('container.openSource')
+		},
+		{ icon: <TrendingUp className="h-4 w-4" />, text: t('container.updates') },
+		{
+			icon: <Globe className="h-4 w-4" />,
+			text: t('container.offlineCapability')
+		},
+		{ icon: <Laptop className="h-4 w-4" />, text: t('container.webApp') }
 	]
 
 	return (
@@ -131,15 +138,11 @@ const NextAppShowcase = () => {
 					className="text-center mb-16"
 				>
 					<h2 className="text-4xl mb-2 font-bold  bg-clip-text ">
-						Neuland Next
+						{t('hero.title')}
 					</h2>
-					<b className="text-xl/loose b-6 font-black ">
-						Deine App für die TH Ingolstadt
-					</b>
+					<b className="text-xl/loose b-6 font-black ">{t('hero.subtitle')}</b>
 					<p className="text-lg text-terminal-text/80 max-w-3xl mx-auto">
-						Deine moderne Campus-App von Neuland Ingolstadt. Entwickelt mit
-						Liebe zum Detail, vollständig Open Source und auf allen Geräten
-						verfügbar.
+						{t('hero.introduction')}
 					</p>
 				</motion.div>
 
@@ -220,19 +223,17 @@ const NextAppShowcase = () => {
 
 							<div className="relative z-10">
 								<h3 className="text-2xl mb-3 font-semibold text-terminal-text">
-									Unser Flaggschiff-Projekt
+									{t('container.title')}
 								</h3>
 
 								<p className="mb-8 text-base leading-relaxed text-terminal-text/70">
-									Neuland Next ist mehr als nur eine App – es ist dein digitaler
-									Begleiter durch den Studienalltag an der THI. Alle wichtigen
-									Funktionen für deinen Campus-Alltag in einer App.
+									{t('container.description')}
 								</p>
 
 								{/* Highlights */}
 								<div className="mb-8 pb-8 border-b border-terminal-window-border">
 									<h4 className="text-sm font-semibold mb-4 text-terminal-cyan uppercase tracking-wider">
-										Warum Neuland Next
+										{t('container.whyNeulandNext')}
 									</h4>
 									<div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
 										{highlights.map((highlight, idx) => (
@@ -258,7 +259,7 @@ const NextAppShowcase = () => {
 								{/* Download Section */}
 								<div className="mb-6">
 									<div className="text-xs font-semibold mb-4 text-terminal-cyan/80 uppercase tracking-wider">
-										Jetzt herunterladen
+										{t('container.download')}
 									</div>
 									<div className="flex flex-col sm:flex-row gap-3 mb-6">
 										<a
@@ -300,7 +301,7 @@ const NextAppShowcase = () => {
 										size={16}
 										className="mr-2 group-hover:rotate-8 transition-transform duration-300"
 									/>
-									Mehr erfahren
+									{t('container.learnMore')}
 								</TerminalButton>
 							</div>
 						</motion.div>
@@ -316,7 +317,7 @@ const NextAppShowcase = () => {
 					className="mb-16 hidden lg:block"
 				>
 					<h3 className="text-2xl font-bold text-center mb-12">
-						Die Features auf einen Blick
+						{t('features.title')}
 					</h3>
 					<div className="relative bg-terminal-window border border-terminal-window-border overflow-hidden">
 						{/* Outer accent corners */}
