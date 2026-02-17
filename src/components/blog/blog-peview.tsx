@@ -3,6 +3,7 @@
 import { allPosts } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
 import { motion } from 'framer-motion'
+import { useTranslations } from 'next-intl'
 import { memo, useMemo } from 'react'
 import {
 	Carousel,
@@ -30,6 +31,8 @@ const BlogPreview = () => {
 		}),
 		[]
 	)
+
+	const t = useTranslations('Home.blogSection')
 
 	return (
 		<div className="relative overflow-visible">
@@ -62,7 +65,7 @@ const BlogPreview = () => {
 
 			<div className="mt-6 mb-8">
 				<div className="flex justify-end items-center">
-					<TerminalButton href="/blog">Alle Posts</TerminalButton>
+					<TerminalButton href="/blog">{t('allPosts')}</TerminalButton>
 				</div>
 			</div>
 		</div>
