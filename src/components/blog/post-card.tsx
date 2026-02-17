@@ -2,8 +2,8 @@
 import type { Post } from 'contentlayer/generated'
 import { ChevronRight } from 'lucide-react'
 import moment from 'moment'
-import Link from 'next/link'
 import { memo } from 'react'
+import { Link } from '@/i18n/navigation'
 
 type PostCardProps = {
 	post: Post
