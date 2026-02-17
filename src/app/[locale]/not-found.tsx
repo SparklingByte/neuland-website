@@ -1,10 +1,13 @@
 'use client'
 import { motion } from 'framer-motion'
 import { ArrowLeft, Terminal } from 'lucide-react'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 import TerminalButton from '@/components/terminal-button'
+import { Link } from '@/i18n/navigation'
 
 export default function NotFound() {
+	const t = useTranslations('NotFound')
+
 	return (
 		<div className="min-h-[calc(100vh-200px)] flex items-center justify-center px-4 py-20">
 			<motion.div
@@ -79,8 +82,7 @@ export default function NotFound() {
 								Page Not Found
 							</h2>
 							<p className="text-terminal-text/70 leading-relaxed">
-								Die angeforderte Seite existiert nicht oder wurde verschoben.
-								Bitte überprüfe die URL oder kehre zur Startseite zurück.
+								{t('description')}
 							</p>
 						</motion.div>
 
@@ -95,7 +97,7 @@ export default function NotFound() {
 								dark
 							>
 								<ArrowLeft size={16} className="mr-2" />
-								Zurück
+								{t('back')}
 							</TerminalButton>
 						</div>
 
@@ -109,19 +111,19 @@ export default function NotFound() {
 									href="/"
 									className="text-sm text-terminal-cyan hover:text-terminal-cyan/80 transition-colors duration-200 no-underline"
 								>
-									→ Home
+									→ {t('links.home')}
 								</Link>
 								<Link
 									href="/blog"
 									className="text-sm text-terminal-cyan hover:text-terminal-cyan/80 transition-colors duration-200 no-underline"
 								>
-									→ Blog
+									→ {t('links.blog')}
 								</Link>
 								<Link
 									href="/projects"
 									className="text-sm text-terminal-cyan hover:text-terminal-cyan/80 transition-colors duration-200 no-underline"
 								>
-									→ Projekte
+									→ {t('links.projects')}
 								</Link>
 							</div>
 						</div>
