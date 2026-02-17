@@ -18,7 +18,7 @@ interface ProjectDetailClientProps {
 }
 
 const ProjectDetailClient = ({ project }: ProjectDetailClientProps) => {
-	const t = useTranslations('Projects.breadcrumbs')
+	const t = useTranslations('Projects')
 
 	return (
 		<div className="min-h-screen py-18 px-4 md:px-8">
@@ -35,7 +35,7 @@ const ProjectDetailClient = ({ project }: ProjectDetailClientProps) => {
 							<BreadcrumbItem className="flex items-center">
 								<BreadcrumbLink asChild className="flex items-center">
 									<Link href="/" className="flex items-center">
-										{t('home')}
+										{t('breadcrumbs.home')}
 									</Link>
 								</BreadcrumbLink>
 							</BreadcrumbItem>
@@ -43,7 +43,7 @@ const ProjectDetailClient = ({ project }: ProjectDetailClientProps) => {
 							<BreadcrumbItem className="flex items-center">
 								<BreadcrumbLink asChild className="flex items-center">
 									<Link href="/projects" className="flex items-center">
-										{t('projects')}
+										{t('breadcrumbs.projects')}
 									</Link>
 								</BreadcrumbLink>
 							</BreadcrumbItem>
@@ -154,7 +154,7 @@ const ProjectDetailClient = ({ project }: ProjectDetailClientProps) => {
 
 							<div className="p-8 relative z-10">
 								<h2 className="text-2xl font-semibold text-terminal-text mb-6">
-									Über das Projekt
+									{t('detailClient.title')}
 								</h2>
 
 								<p className="text-terminal-text/80 text-base leading-relaxed mb-6">
@@ -209,7 +209,7 @@ const ProjectDetailClient = ({ project }: ProjectDetailClientProps) => {
 
 								<div className="p-6 relative z-10">
 									<h3 className="text-sm font-semibold mb-4 text-terminal-cyan uppercase tracking-wider">
-										Technologien
+										{t('detailClient.technologies')}
 									</h3>
 									<div className="flex flex-wrap gap-2">
 										{project.tags.map((tag, idx) => (
@@ -310,7 +310,7 @@ const ProjectDetailClient = ({ project }: ProjectDetailClientProps) => {
 								size={16}
 								className="group-hover:-translate-x-1 transition-transform"
 							/>
-							<span>Zurück zu Projekten</span>
+							<span>{t('detailClient.back')}</span>
 						</div>
 					</TerminalButton>
 				</motion.div>

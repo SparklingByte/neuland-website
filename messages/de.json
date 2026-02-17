@@ -178,6 +178,11 @@
         },
         "metadata": {
             "notFound": "Projekt nicht gefunden"
+        },
+        "detailClient": {
+            "title": "Über das Projekt",
+            "technologies": "Technologien",
+            "back": "Zurück zu allen Projekten"
         }
     },
     "Blog": {
