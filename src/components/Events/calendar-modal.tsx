@@ -47,7 +47,7 @@ const CalendarModal: React.FC<CalendarModalProps> = ({
 		onClose()
 	}, [onClose])
 
-	const t = useTranslations('calendarModal')
+	const t = useTranslations('Home.calendarModal')
 
 	if (!isOpen) return null
 
