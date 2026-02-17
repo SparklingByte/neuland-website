@@ -11,7 +11,7 @@
             "apiErrorMessageLine2": "Please try again later!",
             "noEventsToDisplayMessageLine1": "Thanks for participating in over 20 events this semester! 🎉",
             "noEventsToDisplayMessageLine2": "We are already working on exciting new events for the upcoming semester.",
-            "onlyForMembers": "Members only",
+            "onlyForMembersTitle": "Members only",
             "onlyForMembersDescription": "This event is exclusively for association members and is not open to the public.",
             "internalBadge": "Internal",
             "showAllEvents": "All Events",

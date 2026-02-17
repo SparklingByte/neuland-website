@@ -11,7 +11,7 @@
             "apiErrorMessageLine2": "Bitte versuche es später noch einmal!",
             "noEventsToDisplayMessageLine1": "Danke für eure Teilnahme an den über 20 Events in diesem Semester! 🎉",
             "noEventsToDisplayMessageLine2": "Wir arbeiten bereits an spannenden neuen Events für das kommende Semester.",
-            "onlyForMembers": "Nur für Mitglieder",
+            "onlyForMembersTitle": "Nur für Mitglieder",
             "onlyForMembersDescription": "Diese Veranstaltung ist ausschließlich für Vereinsmitglieder und nicht öffentlich.",
             "internalBadge": "Intern",
             "showAllEvents": "Alle Events",
