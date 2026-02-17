@@ -1,0 +1,233 @@
+{
+    "Home": {
+        "clientIntro": {
+            "typewriter": "Der studentische Verein für alle informatikbegeisterten Studierenden der TH Ingolstadt."
+        },
+        "eventsSection": {
+            "title": "Unsere Veranstaltungen",
+            "unknownError": "Unbekannter Fehler",
+            "apiErrorTitle": "Oh nein! Beim Abrufen der Events ist etwas schiefgelaufen.",
+            "apiErrorMessageLine1": "Unsere Serverwartungsmannschaft macht gerade wohl Kaffeepause.",
+            "apiErrorMessageLine2": "Bitte versuche es später noch einmal!",
+            "noEventsToDisplayMessageLine1": "Danke für eure Teilnahme an den über 20 Events in diesem Semester! 🎉",
+            "noEventsToDisplayMessageLine2": "Wir arbeiten bereits an spannenden neuen Events für das kommende Semester.",
+            "onlyForMembersTitle": "Nur für Mitglieder",
+            "onlyForMembersDescription": "Diese Veranstaltung ist ausschließlich für Vereinsmitglieder und nicht öffentlich.",
+            "internalBadge": "Intern",
+            "showAllEvents": "Alle Events",
+            "subscribeToEvents": "Events abonnieren",
+            "doNotCloseWindowStickyNote": "Fenster nicht schließen!",
+            "eventsIn": "Events im"
+        },
+        "neulandNextSection": {
+            "hero": {
+                "title": "Neuland Next",
+                "subtitle": "Deine App für die TH Ingolstadt",
+                "introduction": "Deine moderne Campus-App von Neuland Ingolstadt. Entwickelt mit Liebe zum Detail, vollständig Open Source und auf allen Geräten verfügbar."
+            },
+            "container": {
+                "title": "Unser Flaggschiff-Projekt",
+                "description": "Neuland Next ist mehr als nur eine App – es ist dein digitaler Begleiter durch den Studienalltag an der THI. Alle wichtigen Funktionen für deinen Campus-Alltag in einer App.",
+                "whyNeulandNext": "Warum Neuland Next",
+                "privacy": "Maximaler Datenschutz",
+                "openSource": "100% Open Source",
+                "offlineCapability": "Offline-fähig",
+                "performance": "Blitzschnelle Performance",
+                "updates": "Regelmäßige Updates",
+                "webApp": "Auch als Web App",
+                "download": "Jetzt herunterladen",
+                "learnMore": "Mehr erfahren"
+            },
+            "features": {
+                "title": "Die Features auf einen Blick",
+                "timetable": {
+                    "title": "Stundenplan & Prüfungen",
+                    "description": "Dein persönlicher Stundenplan und alle Prüfungen"
+                },
+                "calendar": {
+                    "title": "Kalender & Events",
+                    "description": "Alle wichtigen Semesterdaten und Campus-Events"
+                },
+                "profile": {
+                    "title": "Profil",
+                    "description": "Prüfe deine Noten oder dein Druckguthaben"
+                },
+                "mensa": {
+                    "title": "Mensa",
+                    "description": "Alle Speisepläne mit Preisen, Allergenen und Nährwerten"
+                },
+                "map": {
+                    "title": "Campus-Karte",
+                    "description": "Finde freie Räume, erkunde Gebäude oder nutze smarte Vorschläge"
+                },
+                "library": {
+                    "title": "Bibliothek",
+                    "description": "Nutze deinen virtuellen Bibliotheks Code zum Ausleihen"
+                },
+                "links": {
+                    "title": "Quick Links",
+                    "description": "Alle wichtigen Uni-Plattformen wie Moodle oder Primuss"
+                },
+                "news": {
+                    "title": "THI News",
+                    "description": "Bleibe informiert mit den neuesten Nachrichten der THI"
+                }
+            }
+        },
+        "projectsSection": {
+            "title": "Auszug aus unseren Projekten",
+            "showAll": "Alle Projekte anzeigen"
+        },
+        "aboutUsSection": {
+            "title": "Über uns",
+            "container": {
+                "title": "Gemeinschaft & Plattform",
+                "subtitle": "Wir bieten Studierenden eine Plattform zum Austausch, zur Projektarbeit und zur Wissensvermittlung.",
+                "features": {
+                    "projectsCompetitions": {
+                        "title": "Projekte & Wettbewerbe",
+                        "description": "Wir entwickeln innovative Projekte, nehmen an Wettbewerben teil und fördern Kreativität."
+                    },
+                    "eventsKnowledge": {
+                        "title": "Veranstaltungen & Wissen",
+                        "description": "Wir organisieren Events rund um Informatik und Technik – offen für alle Fakultäten und Studiengänge."
+                    },
+                    "communityNetworking": {
+                        "title": "Community & Networking",
+                        "description": "Lerne neue Leute kennen, vernetze dich und werde Teil einer aktiven, hilfsbereiten Studierenden-Community."
+                    }
+                }
+            }
+        },
+        "membershipSection": {
+            "title": "Mitgliedschaft",
+            "pricing": {
+                "students": "Studierende",
+                "externals": "Externe",
+                "year": "Jahr"
+            },
+            "benefits": {
+                "title": "Deine Vorteile",
+                "line1": "Teil eines aktiven studentischen Vereins mit regelmäßigen Treffen und Austausch",
+                "line2": "Gemeinsame Arbeit an Open-Source Projekten",
+                "line3": "Exklusive Workshops, Hackathons und soziale Events mit Gleichgesinnten",
+                "becomeMember": "Mitglied werden",
+                "writeEmail": "E-Mail schreiben"
+            }
+        },
+        "partnerSection": {
+            "title": "Partner",
+            "subtitle": "Jetzt Partner werden und unseren Verein unterstützen!",
+            "features": {
+                "title": "Gemeinsam erreichen wir",
+                "line1": "Spannende Events, Hackathons und Workshops, die Studierende begeistern",
+                "line2": "Innovative Projekte und Karriereerfolge durch echte Praxisbezüge",
+                "line3": "Eine lebendige Tech-Community, die Theorie und Praxis zusammenbringt",
+                "becomePartner": "Partner werden"
+            }
+        },
+        "blogSection": {
+            "allPosts": "Alle Posts"
+        },
+        "calendarModal": {
+            "title": "Du kannst alle Neuland Events in deinen Kalender als iCal Abonnement hinzufügen.",
+            "tutorialTitle": "So geht's:",
+            "tutorialLine1": "Kopiere die URL",
+            "tutorialLine2": "Öffne deine Kalender App",
+            "tutorialLine3": "Erstelle ein neues iCal Abonnement",
+            "tutorialLine4": "Die Events werden automatisch aktualisiert",
+            "copyUrl": "URL kopieren"
+        },
+        "stickyNote": {
+            "importantDefault": "WICHTIG!!"
+        }
+    },
+    "Navigation": {
+        "becomeMember": "Mitglied werden",
+        "projects": "Projekte",
+        "blog": "Blog",
+        "login": "Login"
+    },
+    "Footer": {
+        "bylaws": "Satzung",
+        "privacyPolicyNeuland": "Datenschutz Neuland",
+        "privacyPolicyWebsite": "Datenschutz Website",
+        "legalNotice": "Impressum"
+    },
+    "NotFound": {
+        "description": "Die angeforderte Seite existiert nicht oder wurde verschoben. Bitte überprüfe die URL oder kehre zur Startseite zurück.",
+        "back": "Zurück",
+        "links": {
+            "home": "Startseite",
+            "blog": "Blog",
+            "projects": "Projekte"
+        }
+    },
+    "Projects": {
+        "title": "Unsere Projekte",
+        "subtitle": "Entdecke unsere Sammlung kreativer, technischer und gemeinschaftsgetriebener Projekte. Von Webanwendungen bis hin zu Cybersecurity-Initiativen.",
+        "projectsFound": "{amountProjects, plural, =0 {Keine Projekte gefunden} =1 {Ein Projekt gefunden} other {# Projekte gefunden}}",
+        "filterByTechnology": "Nach Technologie filtern",
+        "noProjectsByFilter": "Keine Projekte gefunden für diesen Filter",
+        "allProjects": "Alle Projekte",
+        "githubText": "Sieh dir unsere Projekte auf GitHub an!",
+        "learnMore": "Mehr erfahren",
+        "breadcrumbs": {
+            "home": "Home",
+            "projects": "Projekte"
+        },
+        "metadata": {
+            "notFound": "Projekt nicht gefunden"
+        },
+        "detailClient": {
+            "title": "Über das Projekt",
+            "technologies": "Technologien",
+            "back": "Zurück zu allen Projekten"
+        }
+    },
+    "Blog": {
+        "allTags": "Alle Tags",
+        "allPosts": "Alle Beiträge",
+        "by": "Von",
+        "tags": {
+            "searchAllTags": "Durchsuche alle {numberOfTags} Tags des Neuland Blogs",
+            "display": "Anzeigen",
+            "amountPosts": "{numberOfPosts, plural, =0 {Keine Beiträge} =1 {1 Beitrag} other {# Beiträge}}",
+            "noPostsFoundWithTag": "Keine Beiträge mit diesem Tag gefunden",
+            "backToAll": "Zurück zu allen Beiträgen"
+        },
+        "metadata": {
+            "title": "Neuland Ingolstadt Blog",
+            "description": "Blog des Neuland Ingolstadt e.V. - Informatik- und Technikthemen, Events und Workshops"
+        }
+    },
+    "Metadata": {
+        "title": "Neuland Ingolstadt e.V.",
+        "description": "Der Informatik-Verein deines Vertrauens. Von Studierenden für Studierende und alle, die sich für Informatik begeistern können.",
+        "jsonLd": {
+            "description": "Der studentische Verein für alle informatikbegeisterten Studierenden der TH Ingolstadt. Wir bieten einen Raum für Kreativität, Technologie, Bildung und Gemeinschaft."
+        }
+    },
+    "FetchError": {
+        "message": "Oh nein! Beim Abrufen {title} ist etwas schiefgelaufen.",
+        "descriptionLine1": "Unsere Serverwartungsmannschaft macht gerade wohl Kaffeepause.",
+        "descriptionLine2": "Bitte versuche es später noch einmal!"
+    },
+    "Legal": {
+        "WebsitePrivacy": {
+            "title": "der Datenschutz-Information",
+            "breadcrumb": "Website Datenschutz-Information"
+        },
+        "NeulandPrivacy": {
+            "title": "der Datenschutzordnung",
+            "breadcrumb": "Neuland Datenschutz"
+        },
+        "LegalNotice": {
+            "breadcrumb": "Impressum"
+        },
+        "Bylaws": {
+            "title": "der Satzung",
+            "breadcrumb": "Satzung"
+        }
+    }
+}

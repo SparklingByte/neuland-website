@@ -1,3 +1,4 @@
+import { useTranslations } from 'next-intl'
 import React from 'react'
 
 interface StickyNoteProps {
@@ -8,10 +9,14 @@ interface StickyNoteProps {
 
 const StickyNote: React.FC<StickyNoteProps> = ({
 	message,
-	importantText = 'WICHTIG!!',
+	importantText,
 	visible
 }) => {
+	const t = useTranslations('Home.stickyNote')
+
 	if (!visible) return null
+
+	const finalImportantText = importantText || t('importantDefault')
 
 	return (
 		<div className="group absolute sm:top-9 sm:-right-4 sm:rotate-6 bottom-[-30px] right-0 rotate-3 z-10 pointer-events-auto w-[120px] h-[110px] bg-terminal-paper shadow-md overflow-hidden rounded-sm">
@@ -20,7 +25,7 @@ const StickyNote: React.FC<StickyNoteProps> = ({
 			<div className="relative p-3 text-center text-terminal-paper-text leading-tight font-semibold mt-1.5">
 				{message}
 				<span className="block text-red-600 text-md font-bold opacity-0 transition-opacity duration-200 group-hover:opacity-100 mt-1 text-sm">
-					{importantText}
+					{finalImportantText}
 				</span>
 			</div>
 			<div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-10 h-3 bg-terminal-paper-text/10" />

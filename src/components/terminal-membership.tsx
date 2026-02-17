@@ -1,9 +1,12 @@
 'use client'
 import { motion } from 'framer-motion'
 import { Mail, UserPlus, Zap } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import TerminalButton from './terminal-button'
 
 const TerminalMembership = () => {
+	const t = useTranslations('Home.membershipSection')
+
 	return (
 		<div className="my-10 w-full">
 			<div className="relative bg-terminal-window border border-terminal-window-border overflow-hidden">
@@ -28,18 +31,18 @@ const TerminalMembership = () => {
 						<div className="flex flex-col gap-5">
 							<div className="flex items-center justify-between">
 								<span className="text-terminal-highlight font-medium">
-									Studierende:
+									{t('pricing.students')}:
 								</span>
 								<span className="text-terminal-text ml-2 font-bold font-mono text-lg">
-									5€ / Jahr
+									5€ / {t('pricing.year')}
 								</span>
 							</div>
 							<div className="flex items-center justify-between">
 								<span className="text-terminal-highlight font-medium">
-									Externe:
+									{t('pricing.externals')}:
 								</span>
 								<span className="text-terminal-text ml-2 font-bold font-mono text-lg">
-									20€ / Jahr
+									20€ / {t('pricing.year')}
 								</span>
 							</div>
 						</div>
@@ -55,7 +58,7 @@ const TerminalMembership = () => {
 					>
 						<h4 className="text-xl font-semibold flex items-center">
 							<Zap size={18} className="text-terminal-cyan mr-2" />
-							Deine Vorteile:
+							{t('benefits.title')}:
 						</h4>
 
 						<div className="space-y-3">
@@ -64,8 +67,7 @@ const TerminalMembership = () => {
 									•
 								</span>
 								<p className="text-terminal-text/70 group-hover:text-terminal-text transition-colors duration-300 mb-0">
-									Teil eines aktiven studentischen Vereins mit regelmäßigen
-									Treffen und Austausch
+									{t('benefits.line1')}
 								</p>
 							</div>
 							<div className="flex items-start group">
@@ -73,7 +75,7 @@ const TerminalMembership = () => {
 									•
 								</span>
 								<p className="text-terminal-text/70 group-hover:text-terminal-text transition-colors duration-300 mb-0">
-									Gemeinsame Arbeit an Open-Source Projekten
+									{t('benefits.line2')}
 								</p>
 							</div>
 							<div className="flex items-start group">
@@ -81,8 +83,7 @@ const TerminalMembership = () => {
 									•
 								</span>
 								<p className="text-terminal-text/70 group-hover:text-terminal-text transition-colors duration-300 mb-0">
-									Exklusive Workshops, Hackathons und soziale Events mit
-									Gleichgesinnten
+									{t('benefits.line3')}
 								</p>
 							</div>
 						</div>
@@ -98,7 +99,7 @@ const TerminalMembership = () => {
 									size={16}
 									className="mr-2 group-hover:rotate-8 transition-transform duration-300"
 								/>
-								Mitglied werden
+								{t('benefits.becomeMember')}
 							</TerminalButton>
 							<TerminalButton
 								href="mailto:info@neuland-ingolstadt.de?subject=Frage%20zur%20Mitgliedschaft"
@@ -108,7 +109,7 @@ const TerminalMembership = () => {
 									size={16}
 									className="mr-2 group-hover:rotate-8 transition-transform duration-300"
 								/>
-								E-Mail schreiben
+								{t('benefits.writeEmail')}
 							</TerminalButton>
 						</div>
 					</motion.div>

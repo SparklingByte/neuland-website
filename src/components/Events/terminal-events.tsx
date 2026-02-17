@@ -1,5 +1,6 @@
 'use client'
 import { CalendarIcon, LucideArrowBigLeft } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import React, { useCallback, useRef, useState } from 'react'
 import TerminalTypeWriter from '@/components/Events/terminal-type-writer'
 import TerminalWindow from '@/components/Events/terminal-window'
@@ -19,28 +20,34 @@ interface TerminalEventsProps {
 const InternalBadge = React.forwardRef<
 	HTMLSpanElement,
 	React.ComponentPropsWithoutRef<'span'>
->(({ className, ...props }, ref) => (
-	<span
-		ref={ref}
-		className={cn(
-			'inline-flex items-center gap-1 border border-terminal-window-border/80 bg-terminal-card/70 px-2 py-[2px] text-[0.6rem] font-semibold uppercase tracking-[0.08em] text-terminal-text/80',
-			className
-		)}
-		{...props}
-	>
+>(({ className, ...props }, ref) => {
+	const t = useTranslations('Home.eventsSection')
+
+	return (
 		<span
-			aria-hidden="true"
-			className="h-1.5 w-1.5 rounded-full bg-red-500/80 shadow-[0_0_6px_rgba(239,68,68,0.6)]"
-		/>
-		Intern
-	</span>
-))
+			ref={ref}
+			className={cn(
+				'inline-flex items-center gap-1 border border-terminal-window-border/80 bg-terminal-card/70 px-2 py-[2px] text-[0.6rem] font-semibold uppercase tracking-[0.08em] text-terminal-text/80',
+				className
+			)}
+			{...props}
+		>
+			<span
+				aria-hidden="true"
+				className="h-1.5 w-1.5 rounded-full bg-red-500/80 shadow-[0_0_6px_rgba(239,68,68,0.6)]"
+			/>
+			{t('internalBadge')}
+		</span>
+	)
+})
 InternalBadge.displayName = 'InternalBadge'
 
 const TerminalEvents: React.FC<TerminalEventsProps> = ({
 	initialData,
 	error: serverError
 }) => {
+	const t = useTranslations('Home.eventsSection')
+
 	const eventsData = initialData || {
 		semester: `SS ${new Date().getFullYear()}`,
 		events: []
@@ -84,8 +91,8 @@ const TerminalEvents: React.FC<TerminalEventsProps> = ({
 
 	return (
 		<TerminalSection
-			title="Unsere Veranstaltungen"
-			subtitle={`Events im ${eventsData?.semester || `SS ${new Date().getFullYear()}`}`}
+			title={t('title')}
+			subtitle={`${t('eventsIn')} ${eventsData?.semester || `SS ${new Date().getFullYear()}`}`}
 			headingLevel={2}
 		>
 			<div className="max-w-5xl mx-auto justify-start mt-10 mb-8 relative overflow-visible min-h-[200px] font-mono">
@@ -102,9 +109,7 @@ const TerminalEvents: React.FC<TerminalEventsProps> = ({
 						<TerminalList>
 							{error ? (
 								<div className="p-4 text-terminal-lightGreen">
-									<p className="text-md mb-2">
-										Oh nein! Beim Abrufen der Events ist etwas schiefgelaufen.
-									</p>
+									<p className="text-md mb-2">{t('apiErrorTitle')}</p>
 									<p className="text-sm text-terminal-lightGreen/60">
 										{typeof error === 'object' &&
 										error !== null &&
@@ -112,24 +117,21 @@ const TerminalEvents: React.FC<TerminalEventsProps> = ({
 											? (error as { message: string }).message
 											: typeof error === 'string'
 												? error
-												: 'Unbekannter Fehler'}
+												: t('unknownError')}
 									</p>
 									<p className="text-sm mt-4 text-terminal-text/70">
-										Unsere Serverwartungsmannschaft macht gerade wohl
-										Kaffeepause.
+										{t('apiErrorMessageLine1')}
 										<br />
-										Bitte versuche es später noch einmal!
+										{t('apiErrorMessageLine2')}
 									</p>
 								</div>
 							) : !eventsData?.events || eventsData.events.length === 0 ? (
 								<div className="p-4 text-terminal-text font-bold">
 									<p className="text-md mb-3">
-										Danke für eure Teilnahme an den über 20 Events in diesem
-										Semester! 🎉
+										{t('noEventsToDisplayMessageLine1')}
 									</p>
 									<p className="text-sm mb-3 text-terminal-text/80">
-										Wir arbeiten bereits an spannenden neuen Events für das
-										kommende Semester.
+										{t('noEventsToDisplayMessageLine2')}
 										<br />
 										<span className="text-terminal-highlight">$</span>{' '}
 										./prepare_events.sh --season SoSe26 --hype-level=MAXIMUM
@@ -244,7 +246,7 @@ const TerminalEvents: React.FC<TerminalEventsProps> = ({
 															size={16}
 															className="mr-1 group-hover:text-terminal-highlight transition-colors"
 														/>
-														Alle Events
+														{t('showAllEvents')}
 													</button>
 												</div>
 											</div>
@@ -316,7 +318,7 @@ const TerminalEvents: React.FC<TerminalEventsProps> = ({
 							size={16}
 							className="mr-2 group-hover:rotate-8 transition-transform duration-300"
 						/>
-						Events abonnieren
+						{t('subscribeToEvents')}
 					</TerminalButton>
 				</div>
 

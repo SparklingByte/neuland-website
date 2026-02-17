@@ -1,8 +1,8 @@
 'use client'
 
 import * as TooltipPrimitive from '@radix-ui/react-tooltip'
+import { useTranslations } from 'next-intl'
 import * as React from 'react'
-
 import { cn } from '@/lib/utils'
 
 const TooltipProvider = TooltipPrimitive.Provider
@@ -35,22 +35,25 @@ interface InternalOnlyTooltipProps {
 
 const InternalOnlyTooltip: React.FC<InternalOnlyTooltipProps> = ({
 	children
-}) => (
-	<TooltipProvider delayDuration={150}>
-		<Tooltip>
-			<TooltipTrigger asChild>{children}</TooltipTrigger>
-			<TooltipContent className="border-terminal-window-border/70 bg-terminal-window text-left font-mono text-terminal-text shadow-terminal/40 max-w-xs">
-				<span className="block text-xs font-semibold uppercase tracking-wide text-terminal-text/80">
-					Nur für Mitglieder
-				</span>
-				<span className="text-[0.8rem] text-terminal-text/80">
-					Diese Veranstaltung ist ausschließlich für Vereinsmitglieder und nicht
-					öffentlich.
-				</span>
-			</TooltipContent>
-		</Tooltip>
-	</TooltipProvider>
-)
+}) => {
+	const t = useTranslations('Home.eventsSection')
+
+	return (
+		<TooltipProvider delayDuration={150}>
+			<Tooltip>
+				<TooltipTrigger asChild>{children}</TooltipTrigger>
+				<TooltipContent className="border-terminal-window-border/70 bg-terminal-window text-left font-mono text-terminal-text shadow-terminal/40 max-w-xs">
+					<span className="block text-xs font-semibold uppercase tracking-wide text-terminal-text/80">
+						{t('onlyForMembersTitle')}
+					</span>
+					<span className="text-[0.8rem] text-terminal-text/80">
+						{t('onlyForMembersDescription')}
+					</span>
+				</TooltipContent>
+			</Tooltip>
+		</TooltipProvider>
+	)
+}
 
 export {
 	Tooltip,

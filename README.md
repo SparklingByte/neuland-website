@@ -72,6 +72,7 @@ The site will be available at [http://localhost:3000](http://localhost:3000)
 - **Events**: Upcoming events section with calendar integration
 - **Projects**: Showcase of association projects
 - **Accessibility**: Keyboard navigation and WCAG compliance
+- **Internationalization**: Support for multiple languages (currently German and English)
 - **SEO Optimized**: Fast, discoverable, and shareable
 - **Open Source**: MIT licensed and community-driven
 

@@ -1,11 +1,13 @@
 'use client'
 import { motion } from 'framer-motion'
 import { Mail, Zap } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import TerminalButton from './terminal-button'
 
 const TerminalPartners: React.FC = () => {
 	// Check if current date is >= December 1st, 2025
 	const showPartners = new Date() >= new Date('2025-12-01')
+	const t = useTranslations('Home.partnerSection')
 
 	return (
 		<div className="my-10 w-full">
@@ -31,9 +33,7 @@ const TerminalPartners: React.FC = () => {
 							$ cat sponsoring-info.txt
 						</div>
 						<div className="text-terminal-text">
-							<p className="font-medium">
-								Jetzt Partner werden und unseren Verein unterstützen!
-							</p>
+							<p className="font-medium">{t('subtitle')}</p>
 						</div>
 					</motion.div>
 
@@ -51,7 +51,7 @@ const TerminalPartners: React.FC = () => {
 					>
 						<h4 className="text-xl font-semibold flex items-center">
 							<Zap size={18} className="text-terminal-cyan mr-2" />
-							Gemeinsam erreichen wir:
+							{t('features.title')}
 						</h4>
 
 						<div className="space-y-3">
@@ -60,8 +60,7 @@ const TerminalPartners: React.FC = () => {
 									•
 								</span>
 								<p className="text-terminal-text/70 group-hover:text-terminal-text transition-colors duration-300 mb-0">
-									Spannende Events, Hackathons und Workshops, die Studierende
-									begeistern
+									{t('features.line1')}
 								</p>
 							</div>
 							<div className="flex items-start group">
@@ -69,8 +68,7 @@ const TerminalPartners: React.FC = () => {
 									•
 								</span>
 								<p className="text-terminal-text/70 group-hover:text-terminal-text transition-colors duration-300 mb-0">
-									Innovative Projekte und Karriereerfolge durch echte
-									Praxisbezüge
+									{t('features.line2')}
 								</p>
 							</div>
 							<div className="flex items-start group">
@@ -78,8 +76,7 @@ const TerminalPartners: React.FC = () => {
 									•
 								</span>
 								<p className="text-terminal-text/70 group-hover:text-terminal-text transition-colors duration-300 mb-0">
-									Eine lebendige Tech-Community, die Theorie und Praxis
-									zusammenbringt
+									{t('features.line3')}
 								</p>
 							</div>
 						</div>
@@ -93,7 +90,7 @@ const TerminalPartners: React.FC = () => {
 									size={16}
 									className="mr-2 group-hover:rotate-8 transition-transform duration-300"
 								/>
-								Partner werden
+								{t('features.becomePartner')}
 							</TerminalButton>
 						</div>
 					</motion.div>

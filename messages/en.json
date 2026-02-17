@@ -1,0 +1,233 @@
+{
+    "Home": {
+        "clientIntro": {
+            "typewriter": "The student association for all IT-enthusiastic students at TH Ingolstadt."
+        },
+        "eventsSection": {
+            "title": "Our Events",
+            "unknownError": "Unknown error",
+            "apiErrorTitle": "Oh no! Something went wrong while fetching the events.",
+            "apiErrorMessageLine1": "Our server maintenance team is probably on a coffee break right now.",
+            "apiErrorMessageLine2": "Please try again later!",
+            "noEventsToDisplayMessageLine1": "Thanks for participating in over 20 events this semester! 🎉",
+            "noEventsToDisplayMessageLine2": "We are already working on exciting new events for the upcoming semester.",
+            "onlyForMembersTitle": "Members only",
+            "onlyForMembersDescription": "This event is exclusively for association members and is not open to the public.",
+            "internalBadge": "Internal",
+            "showAllEvents": "All Events",
+            "subscribeToEvents": "Subscribe to Events",
+            "doNotCloseWindowStickyNote": "Do not close window!",
+            "eventsIn": "Events in"
+        },
+        "neulandNextSection": {
+            "hero": {
+                "title": "Neuland Next",
+                "subtitle": "Your app for TH Ingolstadt",
+                "introduction": "Your modern campus app by Neuland Ingolstadt. Developed with attention to detail, fully open source, and available on all devices."
+            },
+            "container": {
+                "title": "Our Flagship Project",
+                "description": "Neuland Next is more than just an app – it's your digital companion through daily student life at THI. All essential campus functions in one single app.",
+                "whyNeulandNext": "Why Neuland Next",
+                "privacy": "Maximum Privacy",
+                "openSource": "100% Open Source",
+                "offlineCapability": "Offline Ready",
+                "performance": "Lightning Fast Performance",
+                "updates": "Regular Updates",
+                "webApp": "Also available as Web App",
+                "download": "Download now",
+                "learnMore": "Learn more"
+            },
+            "features": {
+                "title": "Features at a Glance",
+                "timetable": {
+                    "title": "Timetable & Exams",
+                    "description": "Your personal schedule and all examination dates"
+                },
+                "calendar": {
+                    "title": "Calendar & Events",
+                    "description": "All important semester dates and campus events"
+                },
+                "profile": {
+                    "title": "Profile",
+                    "description": "Check your grades or your printing balance"
+                },
+                "mensa": {
+                    "title": "Mensa",
+                    "description": "All menus with prices, allergens, and nutritional values"
+                },
+                "map": {
+                    "title": "Campus Map",
+                    "description": "Find free rooms, explore buildings, or use smart suggestions"
+                },
+                "library": {
+                    "title": "Library",
+                    "description": "Use your virtual library code for borrowing books"
+                },
+                "links": {
+                    "title": "Quick Links",
+                    "description": "All important university platforms like Moodle or Primuss"
+                },
+                "news": {
+                    "title": "THI News",
+                    "description": "Stay informed with the latest news from THI"
+                }
+            }
+        },
+        "projectsSection": {
+            "title": "Selected Projects",
+            "showAll": "Show all projects"
+        },
+        "aboutUsSection": {
+            "title": "About Us",
+            "container": {
+                "title": "Community & Platform",
+                "subtitle": "We provide students with a platform for exchange, project work, and knowledge sharing.",
+                "features": {
+                    "projectsCompetitions": {
+                        "title": "Projects & Competitions",
+                        "description": "We develop innovative projects, participate in competitions, and foster creativity."
+                    },
+                    "eventsKnowledge": {
+                        "title": "Events & Knowledge",
+                        "description": "We organize events related to computer science and technology – open to all faculties and programs."
+                    },
+                    "communityNetworking": {
+                        "title": "Community & Networking",
+                        "description": "Meet new people, network, and become part of an active, helpful student community."
+                    }
+                }
+            }
+        },
+        "membershipSection": {
+            "title": "Membership",
+            "pricing": {
+                "students": "Students",
+                "externals": "Externals",
+                "year": "Year"
+            },
+            "benefits": {
+                "title": "Your Benefits",
+                "line1": "Part of an active student association with regular meetings and exchange",
+                "line2": "Collaborative work on open-source projects",
+                "line3": "Exclusive workshops, hackathons, and social events with like-minded people",
+                "becomeMember": "Become a member",
+                "writeEmail": "Write an email"
+            }
+        },
+        "partnerSection": {
+            "title": "Partners",
+            "subtitle": "Become a partner now and support our association!",
+            "features": {
+                "title": "Together we achieve",
+                "line1": "Exciting events, hackathons, and workshops that inspire students",
+                "line2": "Innovative projects and career success through real-world practical relevance",
+                "line3": "A vibrant tech community that brings theory and practice together",
+                "becomePartner": "Become a partner"
+            }
+        },
+        "blogSection": {
+            "allPosts": "All posts"
+        },
+        "calendarModal": {
+            "title": "You can add all Neuland events to your calendar as an iCal subscription.",
+            "tutorialTitle": "How it works:",
+            "tutorialLine1": "Copy the URL",
+            "tutorialLine2": "Open your calendar app",
+            "tutorialLine3": "Create a new iCal subscription",
+            "tutorialLine4": "Events will be updated automatically",
+            "copyUrl": "Copy URL"
+        },
+        "stickyNote": {
+            "importantDefault": "IMPORTANT!!"
+        }
+    },
+    "Navigation": {
+        "becomeMember": "Become a Member",
+        "projects": "Projects",
+        "blog": "Blog",
+        "login": "Login"
+    },
+    "Footer": {
+        "bylaws": "Bylaws",
+        "privacyPolicyNeuland": "Privacy Neuland",
+        "privacyPolicyWebsite": "Privacy Website",
+        "legalNotice": "Legal Notice"
+    },
+    "NotFound": {
+        "description": "The requested page does not exist or has been moved. Please check the URL or return to the homepage.",
+        "back": "Back",
+        "links": {
+            "home": "Home",
+            "blog": "Blog",
+            "projects": "Projects"
+        }
+    },
+    "Projects": {
+        "title": "Our Projects",
+        "subtitle": "Explore our collection of creative, technical, and community-driven projects. From web applications to cybersecurity initiatives.",
+        "projectsFound": "{amountProjects, plural, =0 {No projects found} =1 {One project found} other {# projects found}}",
+        "filterByTechnology": "Filter by technology",
+        "noProjectsByFilter": "No projects found for this filter",
+        "allProjects": "All Projects",
+        "githubText": "Check out our projects on GitHub!",
+        "learnMore": "Learn more",
+        "breadcrumbs": {
+            "home": "Home",
+            "projects": "Projects"
+        },
+        "metadata": {
+            "notFound": "Project not found"
+        },
+        "detailClient": {
+            "title": "About the Project",
+            "technologies": "Technologies",
+            "back": "Back to all projects"
+        }
+    },
+    "Blog": {
+        "allTags": "All Tags",
+        "allPosts": "All Posts",
+        "by": "By",
+        "tags": {
+            "searchAllTags": "Search all {numberOfTags} tags of the Neuland Blog",
+            "display": "Display",
+            "amountPosts": "{numberOfPosts, plural, =0 {No posts} =1 {1 post} other {# posts}}",
+            "noPostsFoundWithTag": "No posts found with this tag",
+            "backToAll": "Back to all posts"
+        },
+        "metadata": {
+            "title": "Neuland Ingolstadt Blog",
+            "description": "Blog of Neuland Ingolstadt e.V. - Computer science and tech topics, events and workshops"
+        }
+    },
+    "Metadata": {
+        "title": "Neuland Ingolstadt e.V.",
+        "description": "The IT association you can trust. By students, for students, and everyone passionate about computer science.",
+        "jsonLd": {
+            "description": "The student association for all IT-enthusiastic students at TH Ingolstadt. We offer a space for creativity, technology, education, and community."
+        }
+    },
+    "FetchError": {
+        "message": "Oh no! Something went wrong while fetching {title}.",
+        "descriptionLine1": "Our server maintenance team is probably on a coffee break right now.",
+        "descriptionLine2": "Please try again later!"
+    },
+    "Legal": {
+        "WebsitePrivacy": {
+            "title": "the Privacy Policy",
+            "breadcrumb": "Website Privacy Policy"
+        },
+        "NeulandPrivacy": {
+            "title": "the Privacy Regulations",
+            "breadcrumb": "Neuland Privacy Policy"
+        },
+        "LegalNotice": {
+            "breadcrumb": "Legal Notice"
+        },
+        "Bylaws": {
+            "title": "the Bylaws",
+            "breadcrumb": "Bylaws"
+        }
+    }
+}

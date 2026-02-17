@@ -1,15 +1,18 @@
 'use client'
 import { motion } from 'framer-motion'
-import { useRouter } from 'next/navigation'
+import { useTranslations } from 'next-intl'
 import type React from 'react'
 import { memo, useCallback, useMemo } from 'react'
 import projectsData from '@/data/projects.json'
+import { useRouter } from '@/i18n/navigation'
 import TerminalButton from '../terminal-button'
 import ProjectCard, { type ProjectDetails } from './project-card'
 
 const ProjectsShowcase: React.FC = () => {
 	const router = useRouter()
 	const memoizedProjects = useMemo(() => projectsData.slice(0, 3), [])
+
+	const t = useTranslations('Home.projectsSection')
 
 	const openProjectDetails = useCallback(
 		(project: ProjectDetails) => {
@@ -54,7 +57,7 @@ const ProjectsShowcase: React.FC = () => {
 						github.com/neuland-ingolstadt
 					</a>
 				</div>
-				<TerminalButton href="/projects">Alle Projekte anzeigen</TerminalButton>
+				<TerminalButton href="/projects">{t('showAll')}</TerminalButton>
 			</div>
 		</div>
 	)
