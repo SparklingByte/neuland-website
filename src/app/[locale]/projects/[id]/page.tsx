@@ -1,5 +1,5 @@
-import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
+import { getTranslations } from 'next-intl/server'
 import type { ProjectDetails } from '@/components/Projects/project-card'
 import projectsData from '@/data/projects.json'
 import ProjectDetailClient from './project-detail-client'
@@ -7,17 +7,20 @@ import ProjectDetailClient from './project-detail-client'
 export const generateStaticParams = async () =>
 	(projectsData as ProjectDetails[]).map((project) => ({ id: project.id }))
 
-export const generateMetadata = async ({
+export async function generateMetadata({
 	params
 }: {
-	params: Promise<{ id: string }>
-}): Promise<Metadata> => {
+	params: Promise<{ locale: string; id: string }>
+}) {
+	const { locale } = await params
+	const t = await getTranslations({ locale, namespace: 'Projects.metadata' })
+
 	const { id } = await params
 	const project = (projectsData as ProjectDetails[]).find((p) => p.id === id)
 
 	if (!project) {
 		return {
-			title: 'Projekt nicht gefunden'
+			title: t('notFound')
 		}
 	}
 
