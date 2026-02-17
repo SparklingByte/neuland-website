@@ -1,7 +1,7 @@
 import { allPosts } from 'contentlayer/generated'
 import { format, parseISO } from 'date-fns'
 import { ArrowLeft } from 'lucide-react'
-import { getTranslations } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import TerminalButton from '@/components/terminal-button'
 import {
 	Breadcrumb,
@@ -32,7 +32,7 @@ export const generateStaticParams = async () => {
 export const generateMetadata = async ({
 	params
 }: {
-	params: { slug: string; locale: string }
+	params: Promise<{ slug: string; locale: string }>
 }) => {
 	const { slug } = await params
 
@@ -41,8 +41,9 @@ export const generateMetadata = async ({
 	return { title: post.title }
 }
 
-const PostLayout = async ({ params }: { params: { slug: string } }) => {
-	const { slug } = await params
+const PostLayout = async ({ params }: { params: Promise<{ slug: string, locale: string }> }) => {
+	const { slug, locale } = await params
+	setRequestLocale(locale);
 
 	const t = await getTranslations('Blog')
 

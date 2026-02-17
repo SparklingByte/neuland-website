@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation'
-import { getTranslations } from 'next-intl/server'
+import { getTranslations, setRequestLocale } from 'next-intl/server'
 import type { ProjectDetails } from '@/components/Projects/project-card'
 import projectsData from '@/data/projects.json'
 import { routing } from '@/i18n/routing'
@@ -43,9 +43,10 @@ const ProjectDetailPage = async ({
 }: {
 	params: Promise<{ id: string; locale: string }>
 }) => {
-	const { id } = await params
+	const { id, locale } = await params
+	setRequestLocale(locale)
 	const project = (projectsData as ProjectDetails[]).find((p) => p.id === id)
-
+	
 	if (!project) {
 		notFound()
 	}
