@@ -1,7 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 import { ArrowLeft, ArrowUpRight, Code, ExternalLink } from 'lucide-react'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 import type { ProjectDetails } from '@/components/Projects/project-card'
 import TerminalButton from '@/components/terminal-button'
 import {
@@ -11,12 +11,15 @@ import {
 	BreadcrumbList,
 	BreadcrumbSeparator
 } from '@/components/ui/breadcrumb'
+import { Link } from '@/i18n/navigation'
 
 interface ProjectDetailClientProps {
 	project: ProjectDetails
 }
 
 const ProjectDetailClient = ({ project }: ProjectDetailClientProps) => {
+	const t = useTranslations('Projects.breadcrumbs')
+
 	return (
 		<div className="min-h-screen py-18 px-4 md:px-8">
 			<div className="max-w-7xl mx-auto">
@@ -32,7 +35,7 @@ const ProjectDetailClient = ({ project }: ProjectDetailClientProps) => {
 							<BreadcrumbItem className="flex items-center">
 								<BreadcrumbLink asChild className="flex items-center">
 									<Link href="/" className="flex items-center">
-										Home
+										{t('home')}
 									</Link>
 								</BreadcrumbLink>
 							</BreadcrumbItem>
@@ -40,7 +43,7 @@ const ProjectDetailClient = ({ project }: ProjectDetailClientProps) => {
 							<BreadcrumbItem className="flex items-center">
 								<BreadcrumbLink asChild className="flex items-center">
 									<Link href="/projects" className="flex items-center">
-										Projekte
+										{t('projects')}
 									</Link>
 								</BreadcrumbLink>
 							</BreadcrumbItem>
