@@ -1,6 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
-import { useRouter } from 'next/navigation'
+import { useRouter } from '@/i18n/navigation'
 import { useTranslations } from 'next-intl'
 import type React from 'react'
 import { memo, useCallback, useMemo } from 'react'
