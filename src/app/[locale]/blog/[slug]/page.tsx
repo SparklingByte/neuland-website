@@ -1,7 +1,7 @@
 import { allPosts } from 'contentlayer/generated'
 import { format, parseISO } from 'date-fns'
 import { ArrowLeft } from 'lucide-react'
-import Link from 'next/link'
+import { getTranslations } from 'next-intl/server'
 import TerminalButton from '@/components/terminal-button'
 import {
 	Breadcrumb,
@@ -10,6 +10,7 @@ import {
 	BreadcrumbList,
 	BreadcrumbSeparator
 } from '@/components/ui/breadcrumb'
+import { Link } from '@/i18n/navigation'
 
 type Author = {
 	name: string
@@ -33,6 +34,8 @@ export const generateMetadata = async ({
 
 const PostLayout = async ({ params }: { params: { slug: string } }) => {
 	const { slug } = await params
+
+	const t = await getTranslations('Blog')
 
 	const post = allPosts.find((post) => post._raw.flattenedPath === slug)
 	if (!post) throw new Error(`Post not found for slug: ${slug}`)
@@ -80,7 +83,7 @@ const PostLayout = async ({ params }: { params: { slug: string } }) => {
 					</h1>
 					{post.authors && post.authors.length > 0 && (
 						<div className="mt-2 text-sm text-terminal-text/80">
-							Von{' '}
+							{t('by')}{' '}
 							{post.authors.map((author, index) => {
 								// Support both string and object format for backward compatibility
 								const isString = typeof author === 'string'
@@ -138,7 +141,7 @@ const PostLayout = async ({ params }: { params: { slug: string } }) => {
 							size={16}
 							className="group-hover:-translate-x-1 transition-transform"
 						/>
-						<span>Alle Posts</span>
+						<span>{t('allPosts')}</span>
 					</div>
 				</TerminalButton>
 			</div>
