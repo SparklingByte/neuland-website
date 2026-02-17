@@ -9,11 +9,11 @@ import {
 	QueryClient,
 	QueryClientProvider
 } from '@tanstack/react-query'
+import type { AbstractIntlMessages } from 'next-intl'
+import { NextIntlClientProvider } from 'next-intl'
 import { useState } from 'react'
 import { BackgroundProvider } from '@/contexts/BackgroundContext'
 import RouteTracker from './Layout/route-tracker'
-import { NextIntlClientProvider } from 'next-intl'
-import type { AbstractIntlMessages } from 'next-intl'
 
 function makeQueryClient() {
 	return new QueryClient({
