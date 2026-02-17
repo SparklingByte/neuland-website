@@ -1,6 +1,6 @@
 import { allPosts } from 'contentlayer/generated'
 import { compareDesc } from 'date-fns'
-import Link from 'next/link'
+import { getTranslations } from 'next-intl/server'
 import { PostCard } from '@/components/blog/post-card'
 import {
 	Breadcrumb,
@@ -18,6 +18,7 @@ import {
 	PaginationNext,
 	PaginationPrevious
 } from '@/components/ui/pagination'
+import { Link } from '@/i18n/navigation'
 
 export default async function TagPage({
 	params,
@@ -123,6 +124,8 @@ export default async function TagPage({
 	// Display tag name with proper capitalization for title
 	const displayTag = tag.charAt(0).toUpperCase() + tag.slice(1)
 
+	const t = await getTranslations('Blog.tags')
+
 	return (
 		<div className="mx-auto max-w-5xl">
 			<Breadcrumb>
@@ -152,8 +155,7 @@ export default async function TagPage({
 			</Breadcrumb>
 			<h1 className="mt-4 mb-2 text-3xl font-bold ">{displayTag}</h1>
 			<p className="mb-8 text-terminal-text/70">
-				{filteredPosts.length}{' '}
-				{filteredPosts.length === 1 ? 'Beitrag' : 'Beiträge'} gefunden
+				{t('amountPosts', { numberOfPosts: filteredPosts.length })}
 			</p>
 
 			{filteredPosts.length > 0 ? (
@@ -197,13 +199,13 @@ export default async function TagPage({
 			) : (
 				<div className="text-center py-12">
 					<p className="text-lg text-terminal-text/70">
-						No posts found with this tag.
+						{t('noPostsFoundWithTag')}
 					</p>
 					<Link
 						href="/blog"
 						className="mt-4 inline-block text-terminal-cyan hover:underline"
 					>
-						Back to all posts
+						{t('backToAll')}
 					</Link>
 				</div>
 			)}
