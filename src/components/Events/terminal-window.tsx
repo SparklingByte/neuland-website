@@ -4,6 +4,7 @@ import type React from 'react'
 import { type JSX, useCallback, useEffect, useRef, useState } from 'react'
 import '../../styles/animations.css'
 import { useAptabase } from '@aptabase/react'
+import { useTranslations } from 'next-intl'
 import StickyNote from './sticky-note'
 import TerminalWindowButtons from './terminal-window-buttons'
 
@@ -45,6 +46,8 @@ const TerminalWindow: React.FC<TerminalWindowProps> = ({
 	const [flickerIntensity, setFlickerIntensity] = useState(0)
 	const [containerHeight, setContainerHeight] = useState<number | null>(null)
 	const [restoreBackground, setRestoreBackground] = useState(false)
+
+	const t = useTranslations('Home.eventsSection')
 
 	const terminalRef = useRef<HTMLDivElement>(null)
 	const timeoutsRef = useRef<number[]>([])
@@ -230,7 +233,7 @@ const TerminalWindow: React.FC<TerminalWindowProps> = ({
 			}}
 		>
 			<StickyNote
-				message="Fenster nicht schließen!"
+				message={t('doNotCloseWindowStickyNote')}
 				visible={terminalState === 'on' && showStickyNote}
 			/>
 
