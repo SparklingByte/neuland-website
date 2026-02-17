@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { getTranslations } from 'next-intl/server'
 import FetchErrorMessage from '@/components/Markdown/fetch-error-message'
 import MarkdownContent from '@/components/Markdown/markdown-content'
 import {
@@ -8,10 +8,13 @@ import {
 	BreadcrumbList,
 	BreadcrumbSeparator
 } from '@/components/ui/breadcrumb'
+import { Link } from '@/i18n/navigation'
 import { fetchOutlineDocument, OUTLINE_IDS } from '@/lib/outline-api'
 
 export default async function Datenschutz() {
 	const result = await fetchOutlineDocument(OUTLINE_IDS.datenschutzWebsite)
+
+	const t = await getTranslations('Legal.WebsitePrivacy')
 
 	return (
 		<div className="pt-20">
@@ -19,12 +22,12 @@ export default async function Datenschutz() {
 				<BreadcrumbList>
 					<BreadcrumbItem>
 						<BreadcrumbLink asChild>
-							<Link href="/">root</Link>
+							<Link href="/">Home</Link>
 						</BreadcrumbLink>
 					</BreadcrumbItem>
 					<BreadcrumbSeparator />
 					<BreadcrumbItem>
-						<BreadcrumbLink>Datenschutz Website</BreadcrumbLink>
+						<BreadcrumbLink>{t('breadcrumb')}</BreadcrumbLink>
 					</BreadcrumbItem>
 				</BreadcrumbList>
 			</Breadcrumb>
@@ -35,10 +38,7 @@ export default async function Datenschutz() {
 					showToc
 				/>
 			) : (
-				<FetchErrorMessage
-					title="der Datenschutz-Information"
-					error={result.error}
-				/>
+				<FetchErrorMessage title={t('title')} error={result.error} />
 			)}
 		</div>
 	)

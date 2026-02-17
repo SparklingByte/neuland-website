@@ -1,7 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 import { Mail, MapPin, Phone, Scale, Users } from 'lucide-react'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 import {
 	Breadcrumb,
 	BreadcrumbItem,
@@ -10,8 +10,11 @@ import {
 	BreadcrumbSeparator
 } from '@/components/ui/breadcrumb'
 import vorstandData from '@/data/vorstand.json'
+import { Link } from '@/i18n/navigation'
 
 export default function Impressum() {
+	const t = useTranslations('Legal.LegalNotice')
+
 	return (
 		<div className="pt-20 pb-12">
 			<div className="max-w-4xl mx-auto px-4">
@@ -24,7 +27,7 @@ export default function Impressum() {
 						</BreadcrumbItem>
 						<BreadcrumbSeparator />
 						<BreadcrumbItem>
-							<BreadcrumbLink>Impressum</BreadcrumbLink>
+							<BreadcrumbLink>{t('breadcrumb')}</BreadcrumbLink>
 						</BreadcrumbItem>
 					</BreadcrumbList>
 				</Breadcrumb>
@@ -57,10 +60,10 @@ export default function Impressum() {
 					<div className="p-8 md:p-12 relative z-10">
 						<div className="mb-8">
 							<h1 className="text-4xl font-bold text-terminal-text mb-2">
-								Impressum
+								{t('breadcrumb')}
 							</h1>
 							<p className="text-terminal-text/70 text-sm font-mono">
-								$ cat impressum.txt
+								$ cat legalnotice.txt
 							</p>
 						</div>
 

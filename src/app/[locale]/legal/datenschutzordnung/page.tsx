@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import { getTranslations } from 'next-intl/server'
 import FetchErrorMessage from '@/components/Markdown/fetch-error-message'
 import MarkdownContent from '@/components/Markdown/markdown-content'
 import {
@@ -8,6 +8,7 @@ import {
 	BreadcrumbList,
 	BreadcrumbSeparator
 } from '@/components/ui/breadcrumb'
+import { Link } from '@/i18n/navigation'
 import { fetchMultipleOutlineDocuments, OUTLINE_IDS } from '@/lib/outline-api'
 
 export default async function DatenschutzOrdnung() {
@@ -16,18 +17,20 @@ export default async function DatenschutzOrdnung() {
 		OUTLINE_IDS.datenschutzHinweise
 	])
 
+	const t = await getTranslations('Legal.NeulandPrivacy')
+
 	return (
 		<div className="pt-20">
 			<Breadcrumb className="mb-6">
 				<BreadcrumbList>
 					<BreadcrumbItem>
 						<BreadcrumbLink asChild>
-							<Link href="/">root</Link>
+							<Link href="/">Home</Link>
 						</BreadcrumbLink>
 					</BreadcrumbItem>
 					<BreadcrumbSeparator />
 					<BreadcrumbItem>
-						<BreadcrumbLink>Datenschutz Neuland</BreadcrumbLink>
+						<BreadcrumbLink>{t('breadcrumb')}</BreadcrumbLink>
 					</BreadcrumbItem>
 				</BreadcrumbList>
 			</Breadcrumb>
@@ -35,10 +38,7 @@ export default async function DatenschutzOrdnung() {
 			{result.success && result.content ? (
 				<MarkdownContent content={result.content} showToc />
 			) : (
-				<FetchErrorMessage
-					title="der Datenschutzordnung"
-					error={result.error}
-				/>
+				<FetchErrorMessage title={t('title')} error={result.error} />
 			)}
 		</div>
 	)
