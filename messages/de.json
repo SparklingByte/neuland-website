@@ -5,7 +5,7 @@
         },
         "eventsSection": {
             "title": "Unsere Veranstaltungen",
-            "unknownError": "Unbekanner Fehler",
+            "unknownError": "Unbekannter Fehler",
             "apiErrorTitle": "Oh nein! Beim Abrufen der Events ist etwas schiefgelaufen.",
             "apiErrorMessageLine1": "Unsere Serverwartungsmannschaft macht gerade wohl Kaffeepause.",
             "apiErrorMessageLine2": "Bitte versuche es später noch einmal!",
