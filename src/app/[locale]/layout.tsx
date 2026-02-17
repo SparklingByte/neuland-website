@@ -111,7 +111,7 @@ export default async function RootLayout({
 	const messages = await getMessages()
 
 	return (
-		<html lang="de" suppressHydrationWarning>
+		<html lang={locale} suppressHydrationWarning>
 			<head>
 				<meta name="color-scheme" content="dark light" />
 				<meta
