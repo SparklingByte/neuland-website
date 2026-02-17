@@ -22,8 +22,6 @@ import {
 } from '@/components/ui/pagination'
 import { Link } from '@/i18n/navigation'
 
-export const dynamic = 'force-dynamic'
-
 export default async function Home({
 	searchParams
 }: {
@@ -33,8 +31,7 @@ export default async function Home({
 		compareDesc(new Date(a.date), new Date(b.date))
 	)
 
-	const resolvedSearchParams = await searchParams
-	const { page } = resolvedSearchParams
+	const { page } = await searchParams
 
 	// Pagination logic
 	const POSTS_PER_PAGE = 12

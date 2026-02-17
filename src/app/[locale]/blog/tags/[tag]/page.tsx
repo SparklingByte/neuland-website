@@ -20,8 +20,6 @@ import {
 } from '@/components/ui/pagination'
 import { Link } from '@/i18n/navigation'
 
-export const dynamic = 'force-dynamic'
-
 export default async function TagPage({
 	params,
 	searchParams
