@@ -294,7 +294,9 @@ const TerminalEvents: React.FC<TerminalEventsProps> = ({
 											>
 												<div className="flex flex-wrap items-center gap-2">
 													<strong className="text-terminal-lightGreen text-[1.05rem] wrap-break-word">
-														{event.title}
+														{locale.startsWith('de')
+															? event.titleDe
+															: event.titleEn}
 														{event.location && (
 															<span className="text-terminal-text/60 ml-2">
 																@{event.location}
