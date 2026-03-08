@@ -1,6 +1,6 @@
 'use client'
 import { ArrowUpRight, CalendarIcon, LucideArrowBigLeft } from 'lucide-react'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import React, { useCallback, useRef, useState } from 'react'
 import TerminalTypeWriter from '@/components/Events/terminal-type-writer'
 import TerminalWindow from '@/components/Events/terminal-window'
@@ -48,6 +48,7 @@ const TerminalEvents: React.FC<TerminalEventsProps> = ({
 	initialData,
 	error: serverError
 }) => {
+	const locale = useLocale()
 	const t = useTranslations('Home.eventsSection')
 
 	const eventsData = initialData || {
@@ -166,7 +167,9 @@ const TerminalEvents: React.FC<TerminalEventsProps> = ({
 												<div className="flex-none">
 													<div className="flex flex-wrap items-center gap-2">
 														<strong className="text-terminal-lightGreen text-xl wrap-break-word pr-4 max-w-full">
-															{eventsData.events[selectedEventIndex].title}
+															{locale.startsWith('de')
+																? eventsData.events[selectedEventIndex].titleDe
+																: eventsData.events[selectedEventIndex].titleEn}
 															{eventsData.events[selectedEventIndex]
 																.location && (
 																<span className="text-terminal-text/60 ml-2 break-all">
@@ -231,8 +234,11 @@ const TerminalEvents: React.FC<TerminalEventsProps> = ({
 													<div className="max-w-full overflow-hidden">
 														<TerminalTypeWriter
 															text={
-																eventsData.events[selectedEventIndex]
-																	.description
+																locale.startsWith('de')
+																	? eventsData.events[selectedEventIndex]
+																			.descriptionDe
+																	: eventsData.events[selectedEventIndex]
+																			.descriptionEn
 															}
 															isActive={true}
 															delay={7}
